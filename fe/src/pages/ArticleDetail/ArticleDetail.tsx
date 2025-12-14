@@ -41,6 +41,34 @@ function ArticleDetail() {
         <div className="article-thumbnail">
           <img src={thumbnail} alt={title} />
         </div>
+  {/* Nội dung bài viết */}
+        <div className="article-content">
+          <p className="content-paragraph">
+            Tối 14/12, trên sân vận động Quốc gia Việt Lào, tuyển nữ Việt Nam đã có màn trình diễn áp đảo trước Indonesia với chiến thắng 5-0 trong trận bán kết bóng đá nữ SEA Games 33.
+          </p>
+
+          <figure className="content-image">
+            <img src="https://via.placeholder.com/800x450" alt="Tuyển nữ Việt Nam" />
+            <figcaption>Tuyển nữ Việt Nam ăn mừng bàn thắng vào lưới Indonesia</figcaption>
+          </figure>
+
+          <p className="content-paragraph">
+            Ngay từ những phút đầu, tuyển nữ Việt Nam đã chủ động tấn công và tạo ra nhiều cơ hội nguy hiểm. Phút thứ 15, tiền đạo Huỳnh Như đã mở tỷ số cho đội bóng của HLV Mai Đức Chung sau pha dứt điểm chính xác.
+          </p>
+
+          <p className="content-paragraph">
+            Hiệp 2, các cô gái vàng tiếp tục chơi tấn công và ghi thêm 4 bàn nữa. Đặc biệt, tiền đạo Phạm Hải Yến đã có cú đúp ấn tượng ở phút 52 và 68.
+          </p>
+
+          <blockquote className="content-quote">
+            "Chúng tôi đã chuẩn bị rất kỹ cho trận đấu này. Các cô gái đã thể hiện tinh thần thi đấu tốt và quyết tâm cao để giành chiến thắng" - HLV Mai Đức Chung chia sẻ sau trận.
+          </blockquote>
+
+          <p className="content-paragraph">
+            Với chiến thắng này, tuyển nữ Việt Nam chính thức giành vé vào trận chung kết SEA Games 33. Họ sẽ gặp đội chiến thắng trong trận bán kết giữa Thái Lan và Myanmar.
+          </p>
+        </div>
+
 
       
 
