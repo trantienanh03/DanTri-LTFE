@@ -80,7 +80,40 @@ function ArticleDetail() {
             <span className="tag">#BóngĐáNữ</span>
           </div>
         </div>
+        {/* Tin liên quan */}
+        <div className="related-articles">
+          <h3 className="related-title">Tin liên quan</h3>
+          <div className="related-grid">
+            
+            <div className="related-item">
+              <img src="https://via.placeholder.com/300x200" alt="Bài viết liên quan" />
+              <div className="related-info">
+                <span className="related-category">Thể thao</span>
+                <h4 className="related-item-title">HLV Mai Đức Chung: "Chúng tôi sẵn sàng cho trận chung kết"</h4>
+                <span className="related-date">14/12/2024 16:30</span>
+              </div>
+            </div>
 
+            <div className="related-item">
+              <img src="https://via.placeholder.com/300x200" alt="Bài viết liên quan" />
+              <div className="related-info">
+                <span className="related-category">Thể thao</span>
+                <h4 className="related-item-title">Lịch thi đấu chung kết bóng đá nữ SEA Games 33</h4>
+                <span className="related-date">14/12/2024 17:00</span>
+              </div>
+            </div>
+
+            <div className="related-item">
+              <img src="https://via.placeholder.com/300x200" alt="Bài viết liên quan" />
+              <div className="related-info">
+                <span className="related-category">Thể thao</span>
+                <h4 className="related-item-title">Phạm Hải Yến: Từ cô gái nông thôn đến ngôi sao bóng đá</h4>
+                <span className="related-date">14/12/2024 18:00</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
 
       
 
