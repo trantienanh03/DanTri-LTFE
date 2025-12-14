@@ -69,6 +69,18 @@ function ArticleDetail() {
           </p>
         </div>
 
+        {/* Thông tin tác giả */}
+        <div className="article-footer">
+          <div className="author-info">
+            <span className="author-name">{author}</span>
+          </div>
+          <div className="article-tags">
+            <span className="tag">#SEAGames33</span>
+            <span className="tag">#TuyểnNữViệtNam</span>
+            <span className="tag">#BóngĐáNữ</span>
+          </div>
+        </div>
+
 
       
 
