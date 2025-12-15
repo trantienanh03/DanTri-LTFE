@@ -1,49 +1,161 @@
 .header-container {
-  background-color: #ffffff;
+  background-color: var(--bg-white);
   border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
   z-index: 50;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 
   .header-content {
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 20px;
-    height: 70px;
+    padding: 0 24px;
+    height: 66px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 32px;
 
-    .logo {
-      text-decoration: none;
-      
-      h2 {
-        color: #2e7d32;
-        font-size: 1.8rem;
-        font-weight: 800;
-        margin: 0;
-        letter-spacing: -0.5px;
+    .left-section {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      .logo {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+
+        img {
+          height: 28px;
+          width: auto;
+          object-fit: contain;
+        }
+      }
+      .weather-info {
+        display: flex;
+        align-items: center;
+
+        .weather-info-container {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 6px 12px;
+          border-radius: 8px;
+
+          .location-date-time {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-items: flex-end;
+
+            .location {
+              font-size: 13px;
+              font-weight: 600;
+              color: var(--text-lighter);
+              line-height: 1.2;
+            }
+
+            .date {
+              font-size: 12px;
+              color: var(--text-lighter);
+              line-height: 1.2;
+            }
+          }
+
+          .separate-line-between {
+            width: 1px;
+            height: 32px;
+            background-color: var(--text-lighter);
+          }
+
+          svg {
+            flex-shrink: 0;
+          }
+
+          .temp {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+          }
+        }
       }
     }
 
-    .actions {
-      .btn-login-nav {
-        display: inline-block;
-        padding: 8px 20px;
-        background-color: transparent;
-        color: #2e7d32;
-        border: 1px solid #2e7d32;
-        border-radius: 6px;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      justify-content: center;
+
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 20px;
         text-decoration: none;
-        font-weight: 600;
-        font-size: 0.95rem;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-primary);
         transition: all 0.2s;
 
-        &:hover {
-          background-color: #2e7d32;
-          color: white;
+        img {
+          width: 26px;
+          height: 26px;
+          object-fit: contain;
+
+          &.dt-rounded-full {
+            border-radius: 50%;
+          }
         }
+
+        &:hover {
+          color: var(--link-color);
+        }
+
+        &:visited {
+          color: var(--text-primary);
+
+          &:hover {
+            color: var(--link-color);
+          }
+        }
+      }
+    }
+
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .btn-login {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 16px;
+        background-color: transparent;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.2s;
+      }
+
+      .search-btn {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        color: var(--text-lighter);
+        transition: all 0.2s;
       }
     }
   }
