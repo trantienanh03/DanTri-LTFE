@@ -1,11 +1,14 @@
 .header-container {
   background-color: var(--bg-white);
-  border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
-  z-index: 50;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  z-index: 100;
 
+  .separate-line-between {
+    width: 1px;
+    height: 20px;
+    background-color: var(--text-lighter);
+  }
   .header-content {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -62,13 +65,6 @@
               line-height: 1.2;
             }
           }
-
-          .separate-line-between {
-            width: 1px;
-            height: 32px;
-            background-color: var(--text-lighter);
-          }
-
           svg {
             flex-shrink: 0;
           }
@@ -86,7 +82,6 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 8px;
       flex: 1;
       justify-content: center;
 

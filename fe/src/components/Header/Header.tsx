@@ -43,6 +43,7 @@ function Header() {
                         />
                         <span>Fica</span>
                     </a>
+                    <div className='separate-line-between'></div>
                     <a
                         className="nav-item dtinews"
                         target="_blank"
@@ -58,6 +59,7 @@ function Header() {
                         />
                         <span>DTiNews</span>
                     </a>
+                    <div className='separate-line-between'></div>
                     <a
                         className="nav-item social"
                         target="_blank"
