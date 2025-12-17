@@ -7,7 +7,7 @@ function Header() {
     const { openAuthModal } = useAuth();
 
     return (
-        <header className="header-container">
+        <header className="header-container container">
             <div className="header-content">
                 <div className="left-section">
                     <Link to="/" className="logo">

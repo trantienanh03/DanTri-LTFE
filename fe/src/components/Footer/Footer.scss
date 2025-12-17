@@ -1,0 +1,169 @@
+.footer-container {
+  background-color: var(--bg-white);
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+.footer-content {
+  max-width: var(--max-width);
+  border-top: 4px solid #007669;
+  margin: 0 auto;
+}
+
+.footer-logo {
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+  img {
+    height: 25px;
+    width: auto;
+  }
+}
+
+.footer-wrap {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+
+  h3 {
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 15px;
+    margin-top: 0;
+    color: var(--text-primary);
+  }
+
+  .left-side-footer p {
+    margin: 5px 0;
+    color: var(--text-primary);
+
+    a:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .mid-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 8px 0;
+
+      span {
+        color: var(--text-primary);
+      }
+
+      a {
+        color: var(--text-primary);
+        transition: color 0.2s;
+
+        &:hover {
+          color: var(--link-color);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .right-side-footer .footer-app {
+    margin-bottom: 25px;
+  }
+
+  .app-badges {
+    margin-bottom: 15px;
+
+    .footer-app-ico {
+      display: flex;
+      gap: 10px;
+
+      a {
+        display: block;
+        width: 120px;
+        height: 40px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        text-indent: -9999px;
+        transition: opacity 0.2s;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        &.ios {
+          background-image: url(https://cdnweb.dantri.com.vn/dist/ee6bf097e303486d2a1c.png);
+        }
+
+        &.android {
+          background-image: url(https://cdnweb.dantri.com.vn/dist/25695d60eaeb16411962.png);
+        }
+      }
+    }
+  }
+
+  .right-side-footer .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    h3 {
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .socials {
+      .social-label {
+        display: none;
+      }
+
+      .social-list {
+        display: flex;
+        gap: 8px;
+
+        a {
+          display: block;
+          width: 30px;
+          height: 30px;
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          text-indent: -9999px;
+          &:hover {
+            opacity: 0.8;
+          }
+
+          &.facebook {
+            background-image: url(https://cdnweb.dantri.com.vn/dist/f79dca0321a473942b57.svg);
+          }
+
+          &.youtube {
+            background-image: url(https://cdnweb.dantri.com.vn/dist/add0b845165b2db1bdc0.svg);
+          }
+
+          &.tiktok {
+            width: 22px;
+            background-image: url(https://cdnweb.dantri.com.vn/dist/e84c1388df2f58641617.svg);
+          }
+
+          &.telegram {
+            background-image: url(https://cdnweb.dantri.com.vn/dist/86fe8f608d590ab8724a.svg);
+          }
+        }
+      }
+    }
+  }
+}
+
+.dantri-copyright {
+  text-align: left;
+
+  p {
+    margin: 0;
+    color: var(--text-lighter);
+    font-size: 14px;
+  }
+}
