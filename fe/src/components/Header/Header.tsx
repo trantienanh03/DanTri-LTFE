@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Search, User } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext.hooks';
 import './Header.scss';
 
 function Header() {
+    const { openAuthModal } = useAuth();
 
     return (
         <header className="header-container">
@@ -78,10 +80,17 @@ function Header() {
                 </nav>
 
                 <div className="right-section">
-                    <Link to="/login" className="btn-login">
+                    {}
+                    <button 
+                        className="btn-login" 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            openAuthModal();
+                        }}
+                    >
                         <User size={18} />
                         <span>Đăng nhập</span>
-                    </Link>
+                    </button>
                     <button className="search-btn">
                         <Search size={20} />
                     </button>
