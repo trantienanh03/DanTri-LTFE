@@ -2,7 +2,7 @@ import './Nav.scss';
 
 function Nav() {
     return (
-        <nav className="nav-container">
+        <nav className="nav-container container">
             <div className="nav-content">
                 <ol className="menu-wrap">
                     <li className="home">
