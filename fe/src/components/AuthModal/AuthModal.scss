@@ -141,11 +141,7 @@
         &::before,
         &::after {
           content: '';
-          flex: 0; // Removed lines as per image "Đăng nhập với Email" is just text? 
-          // Actually image shows "Đăng nhập với Email" with no lines, just text left aligned or center?
-          // Looking at image: "Đăng nhập với Email" is a label above the INPUTs likely, or a section header. 
-          // Wait, the image shows "Đăng nhập với tài khoản" above social icons.
-          // Then "Đăng nhập với Email" below social icons.
+          flex: 0;
         }
       }
 
@@ -180,7 +176,7 @@
           input {
             width: 100%;
             padding: 14px 16px;
-            padding-right: 40px; // Space for eye icon
+            padding-right: 40px; 
             border: 1px solid #e5e5e5;
             border-radius: 4px;
             font-size: 14px;
@@ -208,6 +204,16 @@
             padding: 0;
             display: flex;
           }
+
+          .char-count {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 12px;
+            pointer-events: none; 
+          }
         }
       }
 
@@ -229,7 +235,7 @@
         }
         
         &.active, &:active {
-             background-color: #006649; // Active state color if implemented validation
+             background-color: #006649;
              color: white;
         }
       }
@@ -244,6 +250,19 @@
 
         &:hover {
           text-decoration: underline;
+        }
+      }
+
+      .terms-disclaimer {
+        margin-top: 24px;
+        font-size: 13px;
+        color: #666;
+        text-align: center;
+        line-height: 1.5;
+
+        strong {
+          color: #333;
+          font-weight: 600;
         }
       }
     }
