@@ -1,0 +1,153 @@
+.nav-container {
+  background-color: var(--bg-white);
+  position: sticky;
+  top: 66px;
+  z-index: 40;
+
+  .nav-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+
+    // main menu wrapper
+    .menu-wrap {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      border-bottom: 1px solid #eee;
+      margin: 0;
+      padding: 0;
+      gap: 0;
+
+      // home icon
+      .home {
+        position: relative;
+        margin-left: -10px;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 8px 6px;
+          border-bottom: 3px solid transparent;
+          transition: border-color 0.2s;
+
+          svg {
+            stroke: var(--text-primary);
+            width: 24px;
+            height: 24px;
+          }
+
+          &:hover {
+            border-bottom-color: #015e53;
+          }
+        }
+      }
+
+      // li child, level 1
+      .newest,
+      .has-child {
+        position: relative;
+
+        > a {
+          display: block;
+          padding: 8px 6px;
+          font-size: 12px;
+          font-weight: 600;
+          color: var(--text-primary);
+          text-transform: uppercase;
+          white-space: nowrap;
+          border-bottom: 3px solid transparent;
+          transition: color 0.2s, border-color 0.2s;
+
+          &:hover {
+            border-bottom-color: #015e53;
+          }
+        }
+      }
+
+      // drop menu
+      .has-child {
+        &:hover .submenu {
+          display: block;
+        }
+
+        .submenu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: #eee;
+          border: 1px solid #e5e7eb;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          list-style: none;
+          margin: 0;
+          padding: 2px 0 4px;
+          min-width: 220px;
+          z-index: 100;
+
+          // Submenu item li level 2
+          li a {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            white-space: nowrap;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            position: relative;
+
+            // dash before text
+            &::before {
+              content: "";
+              width: 0;
+              height: 1px;
+              background-color: #2361ff;
+              position: absolute;
+              left: 10px;
+              transition: width 0.15s;
+            }
+
+            &:hover {
+              background-color: transparent;
+              color: #2361ff;
+              padding-left: 24px;
+
+              &::before {
+                width: 10px;
+              }
+            }
+          }
+        }
+      }
+
+      // menu more button
+      .menu-more {
+        position: relative;
+        margin-left: auto;
+        cursor: pointer;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: background-color 0.2s;
+
+        svg.close {
+          display: none;
+        }
+
+        &.active {
+          svg.more {
+            display: none;
+          }
+
+          svg.close {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

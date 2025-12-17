@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Nav from './components/NavigationBar/Nav';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
+import ArticleDetail from './pages/ArticleDetail/ArticleDetail';
 import './App.scss'
 
 function App() {
@@ -12,6 +13,20 @@ function App() {
     <div className="app">
       <Routes>
         <Route path="/login" element={<Login />} />
+        
+        {/* Route cho trang chi tiết bài viết */}
+        <Route path="/article/:id" element={
+          <>
+            <Banner />
+            <Header />
+            <Nav />
+            <main className="body-container">
+              <ArticleDetail />
+            </main>
+            <Footer />
+          </>
+        } />
+        
         <Route path="/" element={
           <>
             <Banner />
