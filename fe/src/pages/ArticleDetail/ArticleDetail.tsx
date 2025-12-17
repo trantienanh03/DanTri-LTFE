@@ -1,121 +1,152 @@
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import articlesData from '../../assets/dantri.json';
 import './ArticleDetail.scss';
 
 function ArticleDetail() {
-  // Dữ liệu bài viết
-  const category = "Thể thao";
-  const title = "Tuyển nữ Việt Nam đại thắng Indonesia 5-0, vào chung kết SEA Games 33";
-  const publishDate = "14/12/2024 15:20";
-  const author = "Văn Quyết";
-  const thumbnail = "https://via.placeholder.com/800x450";
-  const sapo = "Tuyển nữ Việt Nam đã có chiến thắng ấn tượng 5-0 trước Indonesia trong trận bán kết bóng đá nữ SEA Games 33, qua đó giành quyền vào chung kết.";
+  // Lấy id từ URL
+  const { id } = useParams();
+  
+  // State để lưu dữ liệu bài viết
+  const [article, setArticle] = useState(null as any);
+  
+  // Lấy dữ liệu bài viết khi component load
+  useEffect(() => {
+    const articleIndex = parseInt(id || '0');
+    if (articleIndex >= 0 && articleIndex < articlesData.length) {
+      setArticle(articlesData[articleIndex]);
+    }
+  }, [id]);
+  
+  // Nếu chưa có dữ liệu thì hiển thị loading
+  if (!article) {
+    return <div className="loading">Đang tải bài viết...</div>;
+  }
 
   return (
-    <div className="article-detail">
-      <div className="article-container">
-        
-        {/* Đường dẫn */}
-        <div className="breadcrumb">
-          <a href="/">Trang chủ</a>
-          <span className="separator">/</span>
-          <a href="#">{category}</a>
-          <span className="separator">/</span>
-          <span className="current">{title}</span>
-        </div>
+    <div className="body-container">
+      {/* Sidebar với các action buttons */}
+      <div className="singular-sidebar">
+        <ul className="social-pin">
+          <li><button className="cpanel-item facebook" title="Chia sẻ lên Facebook">FB</button></li>
+          <li><button className="cpanel-item twitter" title="Chia sẻ lên Twitter">TW</button></li>
+          <li><button className="cpanel-item comment" title="Bình luận">💬</button></li>
+          <li><button className="cpanel-item save" title="Lưu bài viết">⭐</button></li>
+          <li><button className="cpanel-item print" title="In">🖨️</button></li>
+        </ul>
+      </div>
 
-        {/* Tiêu đề bài viết */}
-        <div className="article-header">
-          <span className="category-tag">{category}</span>
-          <h1 className="article-title">{title}</h1>
-          <div className="article-meta">
-            <span className="publish-date">📅 {publishDate}</span>
-            <span className="author">✍️ {author}</span>
-          </div>
-        </div>
-
-        {/* Tóm tắt */}
-        <div className="article-sapo">
-          <p>{sapo}</p>
-        </div>
-
-        {/* Ảnh đại diện */}
-        <div className="article-thumbnail">
-          <img src={thumbnail} alt={title} />
-        </div>
-  {/* Nội dung bài viết */}
-        <div className="article-content">
-          <p className="content-paragraph">
-            Tối 14/12, trên sân vận động Quốc gia Việt Lào, tuyển nữ Việt Nam đã có màn trình diễn áp đảo trước Indonesia với chiến thắng 5-0 trong trận bán kết bóng đá nữ SEA Games 33.
-          </p>
-
-          <figure className="content-image">
-            <img src="https://via.placeholder.com/800x450" alt="Tuyển nữ Việt Nam" />
-            <figcaption>Tuyển nữ Việt Nam ăn mừng bàn thắng vào lưới Indonesia</figcaption>
-          </figure>
-
-          <p className="content-paragraph">
-            Ngay từ những phút đầu, tuyển nữ Việt Nam đã chủ động tấn công và tạo ra nhiều cơ hội nguy hiểm. Phút thứ 15, tiền đạo Huỳnh Như đã mở tỷ số cho đội bóng của HLV Mai Đức Chung sau pha dứt điểm chính xác.
-          </p>
-
-          <p className="content-paragraph">
-            Hiệp 2, các cô gái vàng tiếp tục chơi tấn công và ghi thêm 4 bàn nữa. Đặc biệt, tiền đạo Phạm Hải Yến đã có cú đúp ấn tượng ở phút 52 và 68.
-          </p>
-
-          <blockquote className="content-quote">
-            "Chúng tôi đã chuẩn bị rất kỹ cho trận đấu này. Các cô gái đã thể hiện tinh thần thi đấu tốt và quyết tâm cao để giành chiến thắng" - HLV Mai Đức Chung chia sẻ sau trận.
-          </blockquote>
-
-          <p className="content-paragraph">
-            Với chiến thắng này, tuyển nữ Việt Nam chính thức giành vé vào trận chung kết SEA Games 33. Họ sẽ gặp đội chiến thắng trong trận bán kết giữa Thái Lan và Myanmar.
-          </p>
-        </div>
-
-        {/* Thông tin tác giả */}
-        <div className="article-footer">
-          <div className="author-info">
-            <span className="author-name">{author}</span>
-          </div>
-          <div className="article-tags">
-            <span className="tag">#SEAGames33</span>
-            <span className="tag">#TuyểnNữViệtNam</span>
-            <span className="tag">#BóngĐáNữ</span>
-          </div>
-        </div>
-        {/* Tin liên quan */}
-        <div className="related-articles">
-          <h3 className="related-title">Tin liên quan</h3>
-          <div className="related-grid">
+      {/* Container chính */}
+      <div className="grid-container">
+        <div className="singular-wrap">
+          <article className="singular-container">
             
-            <div className="related-item">
-              <img src="https://via.placeholder.com/300x200" alt="Bài viết liên quan" />
-              <div className="related-info">
-                <span className="related-category">Thể thao</span>
-                <h4 className="related-item-title">HLV Mai Đức Chung: "Chúng tôi sẵn sàng cho trận chung kết"</h4>
-                <span className="related-date">14/12/2024 16:30</span>
+            {/* Tiêu đề */}
+            <h1 className="title-page detail">{article.title}</h1>
+
+            {/* Thông tin tác giả */}
+            <div className="author-wrap">
+              <div className="author-meta">
+                <div className="author-name"><b>{article.author}</b></div>
+                <time className="author-time">{article.publishDate}</time>
               </div>
             </div>
 
-            <div className="related-item">
-              <img src="https://via.placeholder.com/300x200" alt="Bài viết liên quan" />
-              <div className="related-info">
-                <span className="related-category">Thể thao</span>
-                <h4 className="related-item-title">Lịch thi đấu chung kết bóng đá nữ SEA Games 33</h4>
-                <span className="related-date">14/12/2024 17:00</span>
-              </div>
+            {/* Sapo (tóm tắt) */}
+            <h2 className="singular-sapo">{article.sapo}</h2>
+
+            {/* Ảnh đại diện */}
+            {article.thumbnailUrl && (
+              <figure className="image">
+                <img src={article.thumbnailUrl} alt={article.title} />
+              </figure>
+            )}
+
+            {/* Nội dung bài viết */}
+            <div className="singular-content">
+              {article.content.split('\n').map((paragraph, index) => (
+                paragraph.trim() && <p key={index}>{paragraph}</p>
+              ))}
+
+              {/* Hiển thị hình ảnh trong bài */}
+              {article.imageUrls && article.imageUrls.map((imageUrl, index) => (
+                <figure key={index} className="image">
+                  <img src={imageUrl} alt={`Hình ${index + 1}`} />
+                </figure>
+              ))}
             </div>
 
-            <div className="related-item">
-              <img src="https://via.placeholder.com/300x200" alt="Bài viết liên quan" />
-              <div className="related-info">
-                <span className="related-category">Thể thao</span>
-                <h4 className="related-item-title">Phạm Hải Yến: Từ cô gái nông thôn đến ngôi sao bóng đá</h4>
-                <span className="related-date">14/12/2024 18:00</span>
-              </div>
+            {/* Nguồn */}
+            <div className="singular-source">
+              Theo <strong>{article.author}</strong>
             </div>
 
+          </article>
+
+          {/* Tin liên quan */}
+          <aside className="article-related">
+            <div className="title-head">Tin liên quan</div>
+            {articlesData.slice(0, 2).map((relatedArticle, index) => (
+              <article key={index} className="article-item">
+                <div className="article-thumb">
+                  <a href={`/article/${index}`}>
+                    <img src={relatedArticle.thumbnailUrl} alt={relatedArticle.title} />
+                  </a>
+                </div>
+                <div className="article-content">
+                  <h3 className="article-title">
+                    <a href={`/article/${index}`}>{relatedArticle.title}</a>
+                  </h3>
+                  <div className="article-excerpt">
+                    <a href={`/article/${index}`}>{relatedArticle.sapo}</a>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </aside>
+
+          {/* Bình luận */}
+          <div className="comment-wrap">
+            <div className="comment-head">
+              <div className="comment-title">Bình luận (0)</div>
+              <div className="comment-action">
+                <button className="login">Đăng nhập</button>
+                <button className="register">Đăng kí</button>
+                <span>để gửi bình luận</span>
+              </div>
+            </div>
+            <div className="comment-box">
+              <textarea className="textarea" placeholder="Bạn nghĩ gì về tin này?" readOnly></textarea>
+              <div className="action">
+                <div className="note">Ý kiến của bạn sẽ được xét duyệt trước khi đăng</div>
+                <button className="submit" disabled>Gửi bình luận</button>
+              </div>
+            </div>
+            <div className="comment-empty">
+              <span>Hiện chưa có bình luận nào, hãy trở thành người đầu tiên bình luận!</span>
+            </div>
           </div>
+
         </div>
 
-      
+        {/* Sidebar phải */}
+        <div className="sidebar">
+          <div className="article-lot">
+            <div className="article-head">Đọc nhiều trong {article.categoryName}</div>
+            {articlesData.slice(0, 5).map((item, index) => (
+              <article key={index} className="article-item">
+                <div className="article-thumb">
+                  <a href={`/article/${index}`}>
+                    <img src={item.thumbnailUrl} alt={item.title} width="120" height="80" />
+                  </a>
+                </div>
+                <h3 className="article-title">
+                  <a href={`/article/${index}`}>{item.title}</a>
+                </h3>
+              </article>
+            ))}
+          </div>
+        </div>
 
       </div>
     </div>
