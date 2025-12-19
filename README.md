@@ -1,1 +1,1 @@
-Project use Supa base, to install use this command: npm install @supabase/supabase-js
+Project use Supabase, to install use this command: npm install @supabase/supabase-js
