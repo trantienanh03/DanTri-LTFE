@@ -7,19 +7,15 @@
     display: grid;
     grid-template-columns: 792px 330px;
     grid-gap: 30px;
-
-    // --- CỘT TRÁI (Highlight) ---
     .article.highlight {
       position: relative;
-
-      // Clearfix cho float
       &::after {
         content: "";
         display: block;
         clear: both;
       }
 
-      // Border dọc giữa bài chính và 2 bài nhỏ
+      // Border dọc giữa
       &::before {
         content: "";
         display: block;
@@ -31,7 +27,7 @@
         border-left: 1px solid #eee;
       }
 
-      // Bài chính (float right)
+      // main article
       .article-item:nth-child(1) {
         float: right;
         width: 480px;
@@ -63,7 +59,7 @@
         }
       }
 
-      // 2 bài nhỏ (float left)
+      // 2 left article
       .article-item:not(:nth-child(1)) {
         float: left;
         width: 282px;
@@ -87,8 +83,6 @@
           }
         }
       }
-
-      // Bài thứ 3 có border top
       .article-item:nth-child(3) {
         margin-top: 20px;
         padding-top: 20px;
@@ -96,11 +90,11 @@
       }
     }
 
-    // --- CỘT PHẢI (Special) ---
+    // right section
     .article.special {
       position: relative;
 
-      // Border dọc bên trái
+      // Border 
       &::before {
         content: "";
         display: block;
@@ -113,7 +107,6 @@
       }
 
       .article-item {
-        // Spacing giữa các items (trừ item đầu)
         &:not(:nth-child(1)) {
           margin-top: 24px;
           padding-top: 24px;
@@ -143,8 +136,6 @@
             object-fit: cover;
           }
         }
-
-        // Dạng Blog có Avatar tròn
         &.blog {
           .article-container {
             grid-row-gap: 10px;

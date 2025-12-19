@@ -5,9 +5,7 @@ function Home() {
         <main className="homepage-container container">
             <div className="homepage-content">
                 <div className="grid highlight">
-                    {/* KHỐI HIGHLIGHT (BÊN TRÁI) */}
                     <article className="article highlight">
-                        {/* Bài viết chính lớn nhất - Float Right */}
                         <article className="article-item">
                             <div className="article-thumb">
                                 <a href="/thoi-su/tuyen-giao-va-dan-van">
@@ -25,8 +23,6 @@ function Home() {
                                 </a>
                             </div>
                         </article>
-
-                        {/* Hai bài viết nhỏ - Float Left */}
                         <article className="article-item">
                             <div className="article-thumb">
                                 <a href="/thoi-su/95-thi-sinh">
@@ -49,10 +45,7 @@ function Home() {
                             </h3>
                         </article>
                     </article>
-
-                    {/* KHỐI SPECIAL (BÊN PHẢI) */}
                     <article className="article special">
-                        {/* Các item trong cột phải */}
                         {[1, 2, 3].map((item) => (
                             <article className="article-item" key={item}>
                                 <div className="article-container">
@@ -67,8 +60,6 @@ function Home() {
                                 </div>
                             </article>
                         ))}
-
-                        {/* Dạng Blog đặc biệt có Avatar */}
                         <article className="article-item blog">
                             <div className="article-container">
                                 <div className="article-content">
