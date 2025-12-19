@@ -1,0 +1,232 @@
+.homepage-container {
+  padding: 20px 0;
+  .homepage-content {
+    padding: 0 24px;
+  }
+  .grid.highlight {
+    display: grid;
+    grid-template-columns: 792px 330px;
+    grid-gap: 30px;
+
+    // --- CỘT TRÁI (Highlight) ---
+    .article.highlight {
+      position: relative;
+
+      // Clearfix cho float
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      // Border dọc giữa bài chính và 2 bài nhỏ
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 496px;
+        width: 0;
+        height: 100%;
+        border-left: 1px solid #eee;
+      }
+
+      // Bài chính (float right)
+      .article-item:nth-child(1) {
+        float: right;
+        width: 480px;
+
+        .article-thumb {
+          margin-bottom: 12px;
+          img {
+            width: 480px;
+            height: 320px;
+            object-fit: cover;
+          }
+        }
+
+        .article-title {
+          font-size: 24px;
+          font-weight: 600;
+          line-height: 34px;
+          margin: 0 0 12px;
+          a:hover {
+            color: var(--link-color);
+          }
+        }
+
+        .article-excerpt {
+          margin-top: 12px;
+          font-size: 16px;
+          color: var(--text-lighter);
+          line-height: 1.6;
+        }
+      }
+
+      // 2 bài nhỏ (float left)
+      .article-item:not(:nth-child(1)) {
+        float: left;
+        width: 282px;
+
+        .article-thumb {
+          margin-bottom: 12px;
+          img {
+            width: 282px;
+            height: 188px;
+            object-fit: cover;
+          }
+        }
+
+        .article-title {
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 22px;
+          margin: 12px 0 0;
+          a:hover {
+            color: var(--link-color);
+          }
+        }
+      }
+
+      // Bài thứ 3 có border top
+      .article-item:nth-child(3) {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
+    }
+
+    // --- CỘT PHẢI (Special) ---
+    .article.special {
+      position: relative;
+
+      // Border dọc bên trái
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -21px;
+        width: 0;
+        height: 100%;
+        border-left: 1px solid #eee;
+      }
+
+      .article-item {
+        // Spacing giữa các items (trừ item đầu)
+        &:not(:nth-child(1)) {
+          margin-top: 24px;
+          padding-top: 24px;
+          border-top: 1px solid #eee;
+        }
+
+        .article-container {
+          display: grid;
+          grid-template-columns: calc(100% - 136px) 120px;
+          grid-gap: 16px;
+        }
+
+        .article-title {
+          margin: 0;
+          font-size: 15px;
+          font-weight: 600;
+          line-height: 20px;
+          a:hover {
+            color: var(--link-color);
+          }
+        }
+
+        .article-thumb {
+          img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+          }
+        }
+
+        // Dạng Blog có Avatar tròn
+        &.blog {
+          .article-container {
+            grid-row-gap: 10px;
+          }
+
+          .article-logo-blog {
+            width: 100%;
+            height: 16px;
+            display: block;
+            margin: 0 0 10px;
+            background-image: url(https://cdnweb.dantri.com.vn/dist/df6c5d8aceb7ec016c01.svg);
+            background-position: left center;
+            background-repeat: no-repeat;
+          }
+
+          .article-avatar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+              width: 88px;
+              height: 88px;
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+
+          .article-bottom {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .article-author {
+              display: inline-flex;
+              flex-direction: column;
+              min-width: 0;
+              color: #25282b;
+              margin-left: auto;
+
+              .author-name {
+                font-weight: 400;
+                font-size: 11px;
+                line-height: 150%;
+                text-transform: uppercase;
+                color: #25282b;
+                align-self: flex-end;
+                min-width: 85px;
+              }
+            }
+
+            .article-total-comment {
+              display: inline-flex;
+              align-items: center;
+              gap: 4px;
+              font-size: 12px;
+              line-height: 140%;
+              font-weight: 400;
+              background: none;
+              border: none;
+              cursor: pointer;
+              padding: 0;
+              margin-left: 4px;
+              transition: color 0.2s;
+
+              &:hover {
+                color: #097668;
+
+                svg path {
+                  stroke: #097668;
+                }
+              }
+
+              .comment-count {
+                color: #097668;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
