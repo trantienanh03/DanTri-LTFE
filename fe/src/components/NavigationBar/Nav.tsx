@@ -1,4 +1,5 @@
 import './Nav.scss';
+import { Link } from 'react-router-dom';
 
 function Nav() {
     return (
@@ -6,43 +7,62 @@ function Nav() {
             <div className="nav-content">
                 <ol className="menu-wrap">
                     <li className="home">
-                        <a aria-label="Báo điện tử Dân trí - Tin tức cập nhật liên tục 24/7" href="https://dantri.com.vn/">
+                        <Link aria-label="Báo điện tử Dân trí - Tin tức cập nhật liên tục 24/7" to="/">
                             <svg aria-labelledby="svg-home" aria-hidden="true" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <title id="svg-home">Trang chủ</title>
                                 <path d="M16.7334 22.6665H15.2667C14.9353 22.6665 14.6667 22.3979 14.6667 22.0665V19.2665C14.6667 18.9351 14.9353 18.6665 15.2667 18.6665H16.7334C17.0647 18.6665 17.3334 18.9351 17.3334 19.2665V22.0665C17.3334 22.3979 17.0647 22.6665 16.7334 22.6665Z" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                 <path d="M4 12.6665L16 5.33317L28 12.6665" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                                 <path d="M25.3334 17.3335V26.0668C25.3334 26.3982 25.0647 26.6668 24.7334 26.6668H7.26669C6.93532 26.6668 6.66669 26.3982 6.66669 26.0668V17.3335" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                             </svg>
-                        </a>
+                        </Link>
                     </li>
                     <li className="newest">
-                        <a href="https://dantri.com.vn/tin-moi-nhat.htm">Mới nhất</a>
+                        <Link to="/">Mới nhất</Link>
                     </li>
                     <li className="has-child">
-                        <a href="https://dantri.com.vn/the-gioi.htm">Thế giới</a>
-                        <ol className="submenu">
-                            <li><a href="https://dantri.com.vn/the-gioi/quan-su.htm">Quân sự</a></li>
-                            <li><a href="https://dantri.com.vn/the-gioi/phan-tich-binh-luan.htm">Phân tích - Bình luận</a></li>
-                            <li><a href="https://dantri.com.vn/the-gioi/the-gioi-do-day.htm">Thế giới đó đây</a></li>
-                            <li><a href="https://dantri.com.vn/the-gioi/kieu-bao.htm">Kiều bào</a></li></ol>
+                        <Link to="/category/the-gioi">Thế giới</Link>
                     </li>
                     <li className="has-child">
-                        <a href="https://dantri.com.vn/thoi-su.htm">Thời sự</a>
-                        <ol className="submenu"><li><a href="https://dantri.com.vn/thoi-su/chinh-tri.htm">Chính trị</a></li><li><a href="https://dantri.com.vn/thoi-su/hoc-tap-bac.htm">Học tập Bác</a></li><li><a href="https://dantri.com.vn/thoi-su/dai-hoi-dang-xiv.htm">Đại hội Đảng XIV</a></li><li><a href="https://dantri.com.vn/thoi-su/moi-truong.htm">Môi trường</a></li><li><a href="https://dantri.com.vn/thoi-su/giao-thong.htm">Giao thông</a></li><li><a href="https://dantri.com.vn/thoi-su/nong-tren-mang.htm">Nóng trên mạng</a></li><li><a href="https://dantri.com.vn/collection/gop-y-sua-doi-bo-sung-hien-phap-2013-5746.htm">Góp ý sửa đổi, bổ sung Hiến pháp 2013</a></li></ol>
+                        <Link to="/category/thoi-su">Thời sự</Link>
                     </li>
-                    <li className="has-child"><a href="https://dantri.com.vn/phap-luat.htm">Pháp luật</a><ol className="submenu"><li><a href="https://dantri.com.vn/phap-luat/ho-so-vu-an.htm">Hồ sơ vụ án</a></li><li><a href="https://dantri.com.vn/phap-luat/phap-dinh.htm">Pháp đình</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/suc-khoe.htm">Sức khỏe</a><ol className="submenu"><li><a href="https://dantri.com.vn/suc-khoe/ung-thu.htm">Ung thư</a></li><li><a href="https://dantri.com.vn/suc-khoe/song-khoe.htm">Sống khỏe</a></li><li><a href="https://dantri.com.vn/suc-khoe/ngoai-than-kinh-cot-song.htm">Ngoại thần kinh - Cột sống</a></li><li><a href="https://dantri.com.vn/suc-khoe/cham-dut-con-dau.htm">Chấm dứt cơn đau</a></li><li><a href="https://dantri.com.vn/suc-khoe/kien-thuc-gioi-tinh.htm">Kiến thức giới tính</a></li><li><a href="https://dantri.com.vn/suc-khoe/tu-van.htm">Tư vấn</a></li><li><a href="https://dantri.com.vn/suc-khoe/khoe-dep.htm">Khỏe đẹp</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/doi-song.htm">Đời sống</a><ol className="submenu"><li><a href="https://dantri.com.vn/doi-song/cong-dong.htm">Cộng đồng</a></li><li><a href="https://dantri.com.vn/tet.htm">Tết 2025</a></li><li><a href="https://dantri.com.vn/doi-song/thuong-luu.htm">Thượng lưu</a></li><li><a href="https://dantri.com.vn/doi-song/nha-dep.htm">Nhà đẹp</a></li><li><a href="https://dantri.com.vn/doi-song/gioi-tre.htm">Giới trẻ</a></li><li><a href="https://dantri.com.vn/doi-song/cho-online.htm">Chợ online</a></li><li><a href="https://dantri.com.vn/xo-so.htm">Xổ số</a></li><li><a href="https://dantri.com.vn/doi-song/cuoc-thi-anh-evnspc.htm">Cuộc thi ảnh EVNSPC</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/du-lich.htm">Du lịch</a><ol className="submenu"><li><a href="https://dantri.com.vn/du-lich/tin-tuc.htm">Tin tức</a></li><li><a href="https://dantri.com.vn/du-lich/kham-pha.htm">Khám phá</a></li><li><a href="https://dantri.com.vn/du-lich/mon-ngon-diem-dep.htm">Món ngon - Điểm đẹp</a></li><li><a href="https://dantri.com.vn/du-lich/tour-hay-khuyen-mai.htm">Tour hay - Khuyến mại</a></li><li><a href="https://dantri.com.vn/du-lich/video-anh.htm">Video - Ảnh</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/kinh-doanh.htm">Kinh doanh</a><ol className="submenu"><li><a href="https://dantri.com.vn/kinh-doanh/tai-chinh.htm">Tài chính</a></li><li><a href="https://dantri.com.vn/kinh-doanh/chung-khoan.htm">Chứng khoán</a></li><li><a href="https://dantri.com.vn/kinh-doanh/doanh-nghiep.htm">Doanh nghiệp</a></li><li><a href="https://dantri.com.vn/kinh-doanh/khoi-nghiep.htm">Khởi nghiệp</a></li><li><a href="https://dantri.com.vn/kinh-doanh/tieu-dung.htm">Tiêu dùng</a></li><li><a href="https://dantri.com.vn/kinh-doanh/esg-viet-nam.htm">ESG Việt Nam</a></li><li><a href="https://dantri.com.vn/kinh-doanh/tin-buoc-cung-viet-nam.htm">Tin bước cùng Việt Nam</a></li><li><a href="https://dantri.com.vn/kinh-doanh/toan-canh-kinh-te-tu-nhan.htm">Toàn cảnh kinh tế tư nhân</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/bat-dong-san.htm">Bất động sản</a><ol className="submenu"><li><a href="https://dantri.com.vn/bat-dong-san/du-an.htm">Dự án</a></li><li><a href="https://dantri.com.vn/bat-dong-san/thi-truong.htm">Thị trường</a></li><li><a href="https://dantri.com.vn/bat-dong-san/nha-dat.htm">Nhà đất</a></li><li><a href="https://dantri.com.vn/bat-dong-san/nhip-song-do-thi.htm">Nhịp sống đô thị</a></li><li><a href="https://dantri.com.vn/bat-dong-san/song-xanh.htm">Sống xanh</a></li><li><a href="https://dantri.com.vn/bat-dong-san/noi-that.htm">Nội thất</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/the-thao.htm">Thể thao</a><ol className="submenu"><li><a href="https://dantri.com.vn/the-thao/sea-games.htm">SEA Games 33</a></li><li><a href="https://dantri.com.vn/the-thao/bong-da.htm">Bóng đá</a></li><li><a href="https://dantri.com.vn/the-thao/pickleball.htm">Pickleball</a></li><li><a href="https://dantri.com.vn/the-thao/tennis.htm">Tennis</a></li><li><a href="https://dantri.com.vn/the-thao/golf.htm">Golf</a></li><li><a href="https://dantri.com.vn/the-thao/vo-thuat-cac-mon-khac.htm">Võ thuật - Các môn khác</a></li><li><a href="https://dantri.com.vn/the-thao/hau-truong.htm">Hậu trường</a></li><li><a href="https://dantri.com.vn/the-thao/the-thao-suc-ben/aqua-warriors-van-don-bai-tu-long-bay-2025.htm">Thể thao sức bền</a></li><li><a href="https://dantri.com.vn/the-thao/lich-thi-dau.htm">Lịch thi đấu</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/giai-tri.htm">Giải trí</a><ol className="submenu"><li><a href="https://dantri.com.vn/giai-tri/hau-truong.htm">Hậu trường</a></li><li><a href="https://dantri.com.vn/giai-tri/sach-hay.htm">Sách hay</a></li><li><a href="https://dantri.com.vn/giai-tri/dien-anh.htm">Điện ảnh</a></li><li><a href="https://dantri.com.vn/giai-tri/am-nhac.htm">Âm nhạc</a></li><li><a href="https://dantri.com.vn/giai-tri/thoi-trang.htm">Thời trang</a></li><li><a href="https://dantri.com.vn/giai-tri/my-thuat-san-khau.htm">Mỹ thuật - Sân khấu</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/giao-duc.htm">Giáo dục</a><ol className="submenu"><li><a href="https://dantri.com.vn/giao-duc/goc-phu-huynh.htm">Góc phụ huynh</a></li><li><a href="https://dantri.com.vn/giao-duc/khuyen-hoc.htm">Khuyến học</a></li><li><a href="https://dantri.com.vn/giao-duc/guong-sang.htm">Gương sáng</a></li><li><a href="https://dantri.com.vn/giao-duc/giao-duc-nghe-nghiep.htm">Giáo dục - Nghề nghiệp</a></li><li><a href="https://dantri.com.vn/giao-duc/du-hoc.htm">Du học</a></li><li><a href="https://dantri.com.vn/giao-duc/tuyen-sinh.htm">Tuyển sinh</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/o-to-xe-may.htm">Xe ++</a><ol className="submenu"><li><a href="https://dantri.com.vn/o-to-xe-may/thi-truong-xe.htm">Thị trường xe</a></li><li><a href="https://dantri.com.vn/o-to-xe-may/xe-dien.htm">Xe điện</a></li><li><a href="https://dantri.com.vn/o-to-xe-may/danh-gia.htm">Đánh giá</a></li><li><a href="https://dantri.com.vn/o-to-xe-may/cong-dong-xe.htm">Cộng đồng xe</a></li><li><a href="https://dantri.com.vn/o-to-xe-may/kinh-nghiem-tu-van.htm">Kinh nghiệm - Tư vấn</a></li><li><a href="https://dantri.com.vn/o-to-xe-may/bang-gia-o-to.htm">Bảng giá ô tô</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/noi-vu.htm">Nội vụ</a><ol className="submenu"><li><a href="https://dantri.com.vn/noi-vu/chinh-sach.htm">Chính sách</a></li><li><a href="https://dantri.com.vn/noi-vu/to-chuc-bo-may.htm">Tổ chức bộ máy</a></li><li><a href="https://dantri.com.vn/noi-vu/tien-luong.htm">Tiền lương</a></li><li><a href="https://dantri.com.vn/noi-vu/cong-so.htm">Công sở</a></li><li><a href="https://dantri.com.vn/noi-vu/an-sinh.htm">An sinh</a></li><li><a href="https://dantri.com.vn/noi-vu/sap-xep-cac-don-vi-hanh-chinh.htm">Sắp xếp các đơn vị hành chính</a></li><li><a href="https://dantri.com.vn/collection/dai-hoi-thi-dua-yeu-nuoc-toan-quoc-lan-thu-xi-7836.htm">Đại hội Thi đua yêu nước XI</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/tam-long-nhan-ai.htm">Nhân ái</a><ol className="submenu"><li><a href="https://dantri.com.vn/tam-long-nhan-ai/hoan-canh.htm">Hoàn cảnh</a></li><li><a href="https://dantri.com.vn/tam-long-nhan-ai/du-an-cong-dong.htm">Dự án cộng đồng</a></li><li><a href="https://dantri.com.vn/tam-long-nhan-ai/nhip-cau-nhan-ai.htm">Nhịp cầu nhân ái</a></li><li><a href="https://dantri.com.vn/tam-long-nhan-ai/vuot-len-so-phan.htm">Vượt lên số phận</a></li></ol></li>
-                    <li className="has-child"><a href="https://dantri.com.vn/cong-nghe.htm">Công nghệ</a><ol className="submenu"><li><a href="https://dantri.com.vn/cong-nghe/ai-internet.htm">AI &amp; Internet</a></li><li><a href="https://dantri.com.vn/cong-nghe/an-ninh-mang.htm">An ninh mạng</a></li><li><a href="https://dantri.com.vn/cong-nghe/gia-dung-thong-minh.htm">Gia dụng thông minh</a></li><li><a href="https://dantri.com.vn/cong-nghe/san-pham-cong-dong.htm">Sản phẩm &amp; Cộng đồng</a></li></ol></li>
+                    <li className="has-child">
+                        <Link to="/category/phap-luat">Pháp luật</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/suc-khoe">Sức khỏe</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/doi-song">Đời sống</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/du-lich">Du lịch</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/kinh-doanh">Kinh doanh</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/bat-dong-san">Bất động sản</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/tam-long-nhan-ai">Nhân ái</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/giai-tri">Giải trí</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/the-thao">Thể thao</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/giao-duc">Giáo dục</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/o-to-xe-may">Xe ++</Link>
+                    </li>
+                    <li className="has-child">
+                        <Link to="/category/cong-nghe">Công nghệ</Link>
+                    </li>
+
+
                     <li className="menu-more"><svg aria-hidden="true" className="more" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 13.7379C19.5523 13.7379 20 13.2902 20 12.7379C20 12.1857 19.5523 11.7379 19 11.7379C18.4477 11.7379 18 12.1857 18 12.7379C18 13.2902 18.4477 13.7379 19 13.7379Z" stroke="#4D4D4D" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 13.7379C12.5523 13.7379 12.9999 13.2902 12.9999 12.7379C12.9999 12.1857 12.5523 11.7379 12 11.7379C11.4477 11.7379 11 12.1857 11 12.7379C11 13.2902 11.4477 13.7379 12 13.7379Z" stroke="#4D4D4D" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 13.7379C5.55228 13.7379 5.99999 13.2902 5.99999 12.7379C5.99999 12.1857 5.55228 11.7379 5 11.7379C4.44771 11.7379 4 12.1857 4 12.7379C4 13.2902 4.44771 13.7379 5 13.7379Z" stroke="#4D4D4D" stroke-width="1.3125" stroke-linecap="round" stroke-linejoin="round"></path></svg> <svg aria-hidden="true" className="close" width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.43635 17.804C6.50318 17.8703 6.58245 17.9228 6.6696 17.9584C6.75674 17.994 6.85006 18.012 6.9442 18.0115C7.13309 18.0116 7.31437 17.937 7.44848 17.804L12.0013 13.2512L16.5541 17.804C16.6882 17.937 16.8694 18.0116 17.0583 18.0115C17.1997 18.0116 17.3379 17.9698 17.4555 17.8914C17.5731 17.8131 17.6649 17.7016 17.7192 17.5711C17.7736 17.4407 17.788 17.297 17.7608 17.1583C17.7335 17.0196 17.6658 16.8921 17.5662 16.7919L13.0134 12.2391L17.5662 7.68632C17.7004 7.5521 17.7758 7.37006 17.7758 7.18025C17.7758 6.99044 17.7004 6.8084 17.5662 6.67419C17.432 6.53997 17.2499 6.46457 17.0601 6.46457C16.8703 6.46457 16.6883 6.53997 16.5541 6.67419L12.0013 11.227L7.44848 6.67419C7.31426 6.53997 7.13222 6.46457 6.94241 6.46457C6.7526 6.46457 6.57056 6.53997 6.43635 6.67419C6.30213 6.8084 6.22673 6.99044 6.22673 7.18025C6.22673 7.37006 6.30213 7.5521 6.43635 7.68632L10.9891 12.2391L6.43635 16.7919C6.36984 16.8583 6.31708 16.9372 6.28109 17.0241C6.24509 17.1109 6.22656 17.204 6.22656 17.298C6.22656 17.392 6.24509 17.485 6.28109 17.5719C6.31708 17.6587 6.36984 17.7376 6.43635 17.804Z" fill="black"></path></svg></li>
                 </ol>
             </div>
