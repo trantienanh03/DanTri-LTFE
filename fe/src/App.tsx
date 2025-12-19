@@ -18,7 +18,7 @@ function App() {
 
 
           {/* Route cho trang chi tiết bài viết */}
-          <Route path="/article/:id" element={
+          <Route path="/article" element={
             <>
               <Banner />
               <Header />
@@ -29,6 +29,17 @@ function App() {
               <Footer />
             </>
           } />
+
+          <Route path="/category/:slug" element={
+            <>
+              <Banner />
+              <Header />
+              <Nav />
+              <Home />
+              <Footer />
+            </>
+          } />
+
 
           <Route path="/" element={
             <>
