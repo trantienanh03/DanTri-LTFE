@@ -16,7 +16,7 @@ function App() {
         <AuthModal />
         <Routes>
 
-          
+
           {/* Route cho trang chi tiết bài viết */}
           <Route path="/article/:id" element={
             <>
@@ -29,15 +29,13 @@ function App() {
               <Footer />
             </>
           } />
-          
+
           <Route path="/" element={
             <>
               <Banner />
               <Header />
               <Nav />
-              <main className="body-container">
-                <Home />
-              </main>
+              <Home />
               <Footer />
             </>
           } />
