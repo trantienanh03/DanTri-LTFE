@@ -9,10 +9,11 @@
     height: 20px;
     background-color: var(--text-lighter);
   }
+
   .header-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 24px;
+
     height: 66px;
     display: flex;
     justify-content: space-between;
@@ -20,24 +21,25 @@
     gap: 32px;
 
     .btn-login {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        color: #757575;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 500;
-        transition: color 0.2s;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #757575;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
 
-        &:hover {
-            color: #008837; // Dantri Green
-        }
+      &:hover {
+        color: #008837; // Dantri Green
+      }
     }
+
     .left-section {
       display: flex;
       align-items: center;
@@ -54,6 +56,7 @@
           object-fit: contain;
         }
       }
+
       .weather-info {
         display: flex;
         align-items: center;
@@ -84,6 +87,7 @@
               line-height: 1.2;
             }
           }
+
           svg {
             flex-shrink: 0;
           }

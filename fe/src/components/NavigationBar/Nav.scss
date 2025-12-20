@@ -7,7 +7,7 @@
   .nav-content {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 24px;
+
 
     // main menu wrapper
     .menu-wrap {
@@ -49,7 +49,7 @@
       .has-child {
         position: relative;
 
-        > a {
+        >a {
           display: block;
           padding: 8px 6px;
           font-size: 12px;
