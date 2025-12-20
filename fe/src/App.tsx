@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import Banner from './components/BannerMaster/Banner';
+
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Nav from './components/NavigationBar/Nav';
@@ -20,7 +20,7 @@ function App() {
           {/* Route cho trang chi tiết bài viết */}
           <Route path="/article" element={
             <>
-              <Banner />
+
               <Header />
               <Nav />
               <main className="body-container">
@@ -32,7 +32,7 @@ function App() {
 
           <Route path="/category/:slug" element={
             <>
-              <Banner />
+
               <Header />
               <Nav />
               <Home />
@@ -43,7 +43,7 @@ function App() {
 
           <Route path="/" element={
             <>
-              <Banner />
+
               <Header />
               <Nav />
               <Home />
