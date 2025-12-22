@@ -24,8 +24,8 @@ function Home() {
                 if (slug) {
                     rssUrl = `https://dantri.com.vn/rss/${slug}.rss`;
                 }
-
-                const response = await axios.get(`http://localhost:8080/api/news?url=${encodeURIComponent(rssUrl)}`);
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent(rssUrl)}`);
                 setNews(response.data);
             } catch (error) {
                 console.error("Failed to fetch news", error);
