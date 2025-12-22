@@ -88,7 +88,7 @@ const ArticleDetail = () => {
           if (item.type === 'image') {
             return (
               <figure key={index} className="article-image">
-                <img src={item.content} alt="Article content" />
+                <img referrerPolicy="no-referrer" src={item.content} alt="Article content" />
               </figure>
             );
           } else {
