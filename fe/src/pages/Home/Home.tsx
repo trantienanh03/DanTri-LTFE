@@ -57,7 +57,7 @@ function Home() {
                         <article className="article-item">
                             <div className="article-thumb">
                                 <Link to={`/article?url=${encodeURIComponent(firstNews.link)}`}>
-                                    <img src={firstNews.imageUrl} alt="thumbnail" width="480" height="320" />
+                                    <img src={firstNews.imageUrl} alt="thumbnail" />
                                 </Link>
                             </div>
                             <h3 className="article-title">
@@ -77,7 +77,7 @@ function Home() {
                             <article className="article-item" key={index}>
                                 <div className="article-thumb">
                                     <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
-                                        <img src={item.imageUrl} alt="sub" width="282" height="188" />
+                                        <img src={item.imageUrl} alt="sub" />
                                     </Link>
                                 </div>
                                 <h3 className="article-title">
@@ -104,6 +104,61 @@ function Home() {
                             </article>
                         ))}
                     </article>
+                </div>
+                <div className="grid hot">
+                    <article className="article spotlight">
+                        <div className="title">
+                            Dân trí <span>Spotlight</span>
+                        </div>
+                        {restNews.slice(6, 8).map((item, index) => (
+                            <article className="article-item" key={index}>
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl} alt={item.title} width="234" height="156" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                    <article className="article-hot">
+                        {restNews.slice(8, 13).map((item, index) => (
+                            <article className="article-item" key={index}>
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl} alt={item.title} width="150" height="100" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                    <div className="sidebar">
+                        <div className="sidebar-widget">
+                            <div className="widget-title">Tin liên quan</div>
+                            <div className="widget-articles">
+                                {restNews.slice(13, 18).map((item, index) => (
+                                    <article className="widget-article-item" key={index}>
+                                        <div className="article-number">{index + 1}</div>
+                                        <div className="article-thumb">
+                                            <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl} alt={item.title} width="80" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                                {item.title}
+                                            </Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
