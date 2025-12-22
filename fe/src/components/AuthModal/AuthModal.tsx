@@ -5,7 +5,7 @@ import { supabase } from '../../lib/supabaseClient';
 import './AuthModal.scss';
 
 const AuthModal: React.FC = () => {
-  const { isAuthModalOpen, closeAuthModal } = useAuth();
+  const { isAuthModalOpen, closeAuthModal, signInWithGoogle } = useAuth();
   const [activeTab, setActiveTab] = useState<'login' | 'register'>('login');
   const [showPassword, setShowPassword] = useState(false);
   
@@ -80,13 +80,24 @@ const AuthModal: React.FC = () => {
   };
 
   const handleSocialLogin = async (provider: 'google' | 'facebook' | 'apple') => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider,
-      options: {
-        redirectTo: window.location.origin,
-      },
-    });
-    if (error) setError(error.message);
+    setError(null);
+    try {
+      if (provider === 'google') {
+        await signInWithGoogle();
+      } else {
+        // google login
+        const { error } = await supabase.auth.signInWithOAuth({
+          provider,
+          options: {
+            redirectTo: window.location.origin,
+          },
+        });
+        if (error) throw error;
+      }
+    } catch (err) {
+      const error = err as Error;
+      setError(error.message || 'lỗi khi đăng nhập bằng mạng xã hội.');
+    }
   };
 
   return (
