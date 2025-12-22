@@ -35,8 +35,8 @@ const ArticleDetail = () => {
       setLoading(true);
       setError(null);
       try {
-        // Backend API chạy ở port 8080
-        const response = await axios.get(`http://localhost:8080/api/article?url=${encodeURIComponent(url)}`);
+        const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+        const response = await axios.get(`${apiBaseUrl}/api/article?url=${encodeURIComponent(url)}`);
         setArticle(response.data);
       } catch (err: any) {
         console.error("Lỗi khi tải bài báo:", err);
