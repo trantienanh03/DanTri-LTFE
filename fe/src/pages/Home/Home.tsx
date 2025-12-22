@@ -57,7 +57,7 @@ function Home() {
                         <article className="article-item">
                             <div className="article-thumb">
                                 <Link to={`/article?url=${encodeURIComponent(firstNews.link)}`}>
-                                    <img src={firstNews.imageUrl} alt="thumbnail" />
+                                    <img src={firstNews.imageUrl} alt="thumbnail" referrerPolicy="no-referrer" />
                                 </Link>
                             </div>
                             <h3 className="article-title">
@@ -77,7 +77,7 @@ function Home() {
                             <article className="article-item" key={index}>
                                 <div className="article-thumb">
                                     <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
-                                        <img src={item.imageUrl} alt="sub" />
+                                        <img src={item.imageUrl} alt="sub" referrerPolicy="no-referrer" />
                                     </Link>
                                 </div>
                                 <h3 className="article-title">
@@ -98,7 +98,7 @@ function Home() {
                                         </h3>
                                     </div>
                                     <div className="article-thumb">
-                                        <img src={item.imageUrl} alt="thumb" width="120" height="80" />
+                                        <img src={item.imageUrl} alt="thumb" width="120" height="80" referrerPolicy="no-referrer" />
                                     </div>
                                 </div>
                             </article>
@@ -114,7 +114,7 @@ function Home() {
                             <article className="article-item" key={index}>
                                 <div className="article-thumb">
                                     <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
-                                        <img src={item.imageUrl} alt={item.title} width="234" height="156" />
+                                        <img src={item.imageUrl} alt={item.title} width="234" height="156" referrerPolicy="no-referrer" />
                                     </Link>
                                 </div>
                                 <h3 className="article-title">
@@ -128,7 +128,7 @@ function Home() {
                             <article className="article-item" key={index}>
                                 <div className="article-thumb">
                                     <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
-                                        <img src={item.imageUrl} alt={item.title} width="150" height="100" />
+                                        <img src={item.imageUrl} alt={item.title} width="150" height="100" referrerPolicy="no-referrer" />
                                     </Link>
                                 </div>
                                 <h3 className="article-title">
@@ -146,7 +146,7 @@ function Home() {
                                         <div className="article-number">{index + 1}</div>
                                         <div className="article-thumb">
                                             <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
-                                                <img src={item.imageUrl} alt={item.title} width="80" height="60" />
+                                                <img src={item.imageUrl} alt={item.title} width="80" height="60" referrerPolicy="no-referrer" />
                                             </Link>
                                         </div>
                                         <h3 className="article-title">
