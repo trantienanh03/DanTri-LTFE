@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Search, User, ChevronDown } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext.hooks';
 import './Header.scss';
+import logoImage from '../../assets/img/logo_dantri.svg';
 
 function Header() {
     const { user, openAuthModal, signOut } = useAuth();
@@ -30,7 +31,7 @@ function Header() {
                 <div className="left-section">
                     <Link to="/" className="logo">
                         <img
-                            src="https://cdnphoto.dantri.com.vn/pK7DOXhOc-13Ph078-BVL4wZoAU=/2025/07/15/logo-1png-1752569708909.png"
+                            src={logoImage}
                             alt="Dân trí"
                             height="40"
                         />
