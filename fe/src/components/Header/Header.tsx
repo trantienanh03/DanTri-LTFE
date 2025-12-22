@@ -18,10 +18,10 @@ function Header() {
 
         if (isDropdownOpen) {
             document.addEventListener('mousedown', handleClickOutside);
-        }
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
+    }
     }, [isDropdownOpen]);
 
     return (
