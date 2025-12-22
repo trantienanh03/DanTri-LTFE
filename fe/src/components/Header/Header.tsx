@@ -1,10 +1,28 @@
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, User } from 'lucide-react';
+import { Search, User, ChevronDown } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext.hooks';
 import './Header.scss';
 
 function Header() {
-    const { openAuthModal } = useAuth();
+    const { user, openAuthModal, signOut } = useAuth();
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        if (isDropdownOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isDropdownOpen]);
 
     return (
         <header className="header-container container">
@@ -81,16 +99,51 @@ function Header() {
 
                 <div className="right-section">
                     {}
-                    <button 
-                        className="btn-login" 
-                        onClick={(e) => {
-                            e.preventDefault();
-                            openAuthModal();
-                        }}
-                    >
-                        <User size={18} />
-                        <span>Đăng nhập</span>
-                    </button>
+                    {user ? (
+                        <div className="user-nav" ref={dropdownRef}>
+                            <button 
+                                className="user-greeting-btn"
+                                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                            >
+                                <span className="user-greeting">
+                                    Chào, {user.user_metadata?.full_name?.split(' ').pop() || 'Bạn'}
+                                </span>
+                                <ChevronDown size={16} className={`chevron ${isDropdownOpen ? 'open' : ''}`} />
+                            </button>
+                            
+                            {isDropdownOpen && (
+                                <div className="user-dropdown">
+                                    <div className="dropdown-arrow"></div>
+                                    {/* Mốt làm rồi gắn link sau nha giờ note tượng trưng th */}
+                                    <Link to="/profile" className="dropdown-item">Thông tin tài khoản</Link>
+                                    <Link to="/activity" className="dropdown-item">Hoạt động bình luận</Link>
+                                    <Link to="/newsfeed" className="dropdown-item">Bảng tin của bạn</Link>
+                                    <Link to="/history" className="dropdown-item">Tin đã xem</Link>
+                                    <Link to="/saved" className="dropdown-item">Tin đã lưu</Link>
+                                    <button 
+                                        className="dropdown-item logout" 
+                                        onClick={() => {
+                                            signOut(); // signOut này viết sẵn của supabase ở AuthContent nên ko viết lại ae khỏi tìm
+                                            setIsDropdownOpen(false);
+                                        }}
+                                    >
+                                        Đăng xuất
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <button 
+                            className="btn-login" 
+                            onClick={(e) => {
+                                e.preventDefault();
+                                openAuthModal();
+                            }}
+                        >
+                            <User size={18} />
+                            <span>Đăng nhập</span>
+                        </button>
+                    )}
                     <button className="search-btn">
                         <Search size={20} />
                     </button>
