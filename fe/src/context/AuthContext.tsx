@@ -54,6 +54,16 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     if (error) throw error;
   };
 
+  const signInWithGithub = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'github',
+      options: {
+        redirectTo: window.location.origin,
+      },
+    });
+    if (error) throw error;
+  };
+
   const value = {
     user,
     session,
@@ -63,7 +73,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     closeAuthModal,
     signOut,
     signInWithGoogle,
-    signInWithFacebook
+    signInWithFacebook,
+    signInWithGithub
   };
 
   return (
