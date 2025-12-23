@@ -88,15 +88,9 @@ const AuthModal: React.FC = () => {
         await signInWithFacebook();
       } else if (provider === 'github') {
         await signInWithGithub();
-      } else {
-        const { error } = await supabase.auth.signInWithOAuth({
-          provider,
-          options: {
-            redirectTo: window.location.origin,
-          },
-        });
-        if (error) throw error;
-      }
+      }else {
+        throw new Error(`${provider} chưa được hỗ trợ.`);
+}
     } catch (err) {
       const error = err as Error;
       setError(error.message || 'lỗi khi đăng nhập bằng mạng xã hội.');
