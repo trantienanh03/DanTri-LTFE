@@ -5,7 +5,7 @@ import { supabase } from '../../lib/supabaseClient';
 import './AuthModal.scss';
 
 const AuthModal: React.FC = () => {
-  const { isAuthModalOpen, closeAuthModal, signInWithGoogle } = useAuth();
+  const { isAuthModalOpen, closeAuthModal, signInWithGoogle, signInWithFacebook } = useAuth();
   const [activeTab, setActiveTab] = useState<'login' | 'register'>('login');
   const [showPassword, setShowPassword] = useState(false);
   
@@ -84,8 +84,9 @@ const AuthModal: React.FC = () => {
     try {
       if (provider === 'google') {
         await signInWithGoogle();
+      } else if (provider === 'facebook') {
+        await signInWithFacebook();
       } else {
-        // google login
         const { error } = await supabase.auth.signInWithOAuth({
           provider,
           options: {

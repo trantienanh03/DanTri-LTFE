@@ -44,6 +44,16 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     if (error) throw error;
   };
 
+  const signInWithFacebook = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'facebook',
+      options: {
+        redirectTo: window.location.origin,
+      },
+    });
+    if (error) throw error;
+  };
+
   const value = {
     user,
     session,
@@ -52,7 +62,8 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     openAuthModal,
     closeAuthModal,
     signOut,
-    signInWithGoogle
+    signInWithGoogle,
+    signInWithFacebook
   };
 
   return (

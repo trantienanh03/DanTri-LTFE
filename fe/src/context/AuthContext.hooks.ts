@@ -10,6 +10,7 @@ export interface AuthContextType {
   closeAuthModal: () => void;
   signOut: () => Promise<void>;
   signInWithGoogle: () => Promise<void>;
+  signInWithFacebook: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
