@@ -38,7 +38,7 @@ const ArticleDetail = () => {
         const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
         const response = await axios.get(`${apiBaseUrl}/api/article?url=${encodeURIComponent(url)}`);
         setArticle(response.data);
-      } catch (err: any) {
+      } catch (err) {
         console.error("Lỗi khi tải bài báo:", err);
         setError("Có lỗi xảy ra khi tải bài báo. Vui lòng thử lại.");
       } finally {
@@ -88,7 +88,7 @@ const ArticleDetail = () => {
           if (item.type === 'image') {
             return (
               <figure key={index} className="article-image">
-                <img src={item.content} alt="Article content" />
+                <img referrerPolicy="no-referrer" src={item.content} alt="Article content" />
               </figure>
             );
           } else {
