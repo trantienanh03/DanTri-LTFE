@@ -34,35 +34,46 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     await supabase.auth.signOut();
   };
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = () => signInWithOAuth('google');
+  const signInWithFacebook = () => signInWithOAuth('facebook');
+  const signInWithGithub = () => signInWithOAuth('github');
+
+  const signInWithOAuth = async (provider: 'google' | 'facebook' | 'github') => {
     const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
+      provider,
       options: {
-        redirectTo: window.location.origin,
+        redirectTo: window.location.href,
       },
     });
     if (error) throw error;
   };
 
-  const signInWithFacebook = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'facebook',
-      options: {
-        redirectTo: window.location.origin,
-      },
-    });
+  const unlinkSocialAccount = async (provider: string) => {
+    if (!user) return;
+
+    // tìm identity tương ứng với provider
+    const identity = user.identities?.find((id) => id.provider === provider);
+    if (!identity) throw new Error(`Không tìm thấy liên kết cho ${provider}`);
+
+    const { error } = await supabase.auth.unlinkIdentity(identity);
     if (error) throw error;
+
+    // update lại session sau khi ngắt kết nối
+    const { data: { user: updatedUser } } = await supabase.auth.getUser();
+    setUser(updatedUser);
   };
 
-  const signInWithGithub = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'github',
-      options: {
-        redirectTo: window.location.origin,
-      },
-    });
-    if (error) throw error;
-  };
+  //dòng này để khi thêm kết nối mới nó ko lưu tên mới vào session gây hiển thị nhầm tên
+  const displayName = (() => {
+    if (!user) return '';
+    const sortedIdentities = [...(user.identities || [])].sort(
+      (a, b) => new Date(a.created_at || '').getTime() - new Date(b.created_at || '').getTime()
+    );
+    const primaryIdentity = sortedIdentities[0];
+    return primaryIdentity?.identity_data?.full_name || 
+           primaryIdentity?.identity_data?.name || 
+           user.user_metadata?.full_name;
+  })();
 
   const value = {
     user,
@@ -74,7 +85,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     signOut,
     signInWithGoogle,
     signInWithFacebook,
-    signInWithGithub
+    signInWithGithub,
+    unlinkSocialAccount,
+    displayName
   };
 
   return (
