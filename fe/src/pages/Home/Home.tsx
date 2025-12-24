@@ -212,7 +212,6 @@ function Home() {
                 </div>
                 <div className="grid normal">
                     <article className="article-list">
-                        {/* Regular article items */}
                         {restNews.slice(18, 23).map((item, index) => (
                             <article key={index} className="article-item">
                                 <div className="article-thumb">
@@ -231,7 +230,7 @@ function Home() {
                             </article>
                         ))}
 
-                        {/* TIN HAY featured box */}
+                        {/* TIN HAY */}
                         <div className="featured-box">
                             <div className="title-head">TIN HAY</div>
                             <article className="grid-featured">
@@ -249,8 +248,6 @@ function Home() {
                                 ))}
                             </article>
                         </div>
-
-                        {/* More article items after featured box */}
                         {restNews.slice(26, 31).map((item, index) => (
                             <article key={index + 23} className="article-item">
                                 <div className="article-thumb">
@@ -278,10 +275,10 @@ function Home() {
                                 <ol className="category-nav">
                                     <li><Link to="/category/tai-chinh">Tài chính</Link></li>
                                     <li><Link to="/category/chung-khoan">Chứng khoán</Link></li>
+                                    <li><Link to="/category/chung-khoan">ESG Việt Nam</Link></li> {/*khong biet co cai link nay ko?*/}
                                 </ol>
                             </div>
                             <div className="category-container">
-                                {/* First category article with large thumbnail */}
                                 {restNews.slice(31, 32).map((item, index) => (
                                     <article key={index} className="article-item">
                                         <div className="article-thumb">
@@ -299,8 +296,6 @@ function Home() {
                                         </div>
                                     </article>
                                 ))}
-
-                                {/* Smaller category articles with thumbnail on right */}
                                 {restNews.slice(32, 35).map((item, index) => (
                                     <article key={index + 1} className="article-item">
                                         <div className="article-thumb">
@@ -313,6 +308,558 @@ function Home() {
                                         </h3>
                                     </article>
                                 ))}
+                            </div>
+                        </div>
+                        {/* danh mục Thời sự */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/thoi-su">Thời sự</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/chinh-tri">Chính trị</Link></li>
+                                    <li><Link to="/category/hoc-tap-bac">Học tập Bác</Link></li>
+                                    <li><Link to="/category/moi-truong">Môi trường</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(35, 36).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(36, 40).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* danh mục sức khoẻ */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/suc-khoe">Sức khỏe</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/ung-thu">Ung thư</Link></li>
+                                    <li><Link to="/category/ngoai-than-kinh-cot-song">Ngoại thần kinh - Cột sống</Link></li>
+                                    <li><Link to="/category/cham-dut-con-dau">Chấm dứt cơn đau</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(40, 41).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(41, 45).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* danh mục BDS */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/bat-dong-san">Bất động sản</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/du-an">Dự án</Link></li>
+                                    <li><Link to="/category/thi-truong">Thị trường</Link></li>
+                                    <li><Link to="/category/nhip-song-do-thi">Nhịp sống đô thị</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(45, 46).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(46, 50).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* danh mục Đời sống */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/doi-song">Đời sống</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/cong-dong">Cộng đồng</Link></li>
+                                    <li><Link to="/category/nha-dep">Nhà đẹp</Link></li>
+                                    <li><Link to="/category/thuong-luu">Thượng lưu</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(50, 51).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(51, 55).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* danh mục Thể thao */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/the-thao">Thể thao</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/bong-da">Bóng đá</Link></li>
+                                    <li><Link to="/category/pickleball">Pickleball</Link></li>
+                                    <li><Link to="/category/tennis">Tennis</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(55, 56).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(56, 60).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* danh mục Giải trí */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/giai-tri">Giải trí</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/hau-truong">Hậu trường</Link></li>
+                                    <li><Link to="/category/sach-hay">Sách hay</Link></li>
+                                    <li><Link to="/category/dien-anh">Điện ảnh</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(60, 61).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(61, 65).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* danh mục noi vu */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/noi-vu">Nội vụ</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/chinh-sach">Chính sách</Link></li>
+                                    <li><Link to="/category/to-chuc-bo-may">Tổ chức bộ máy</Link></li>
+                                    <li><Link to="/category/tien-luong">Tiền lương</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(65, 66).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(66, 70).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* danh mục tam long nhan ai*/}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/tam-long-nhan-ai">Tấm lòng nhân ái</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/nhip-cau-nhan-ai">Nhịp cầu nhân ái</Link></li>
+                                    <li><Link to="/category/vuot-len-so-phan">Vượt lên số phận</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(70, 71).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(71, 75).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* native article */}
+                        <div className="native-article">
+                            <div className="native-container">
+                                {restNews.slice(90, 92).map((item, index) => (
+                                    <article key={index} className="native-item">
+                                        <figure className="native-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img
+                                                    src={item.imageUrl || 'https://via.placeholder.com/282x188'}
+                                                    alt={item.title}
+                                                    width="282"
+                                                    height="188"
+                                                />
+                                            </Link>
+                                        </figure>
+                                        <div className="native-content">
+                                            <Link to="/category/featured" className="native-category">
+                                                {index === 0 ? 'Lao động - Việc làm' : 'Khoa học'}
+                                            </Link>
+                                            <h3 className="native-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                    {item.title}
+                                                </Link>
+                                            </h3>
+                                        </div>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* danh mục the gioi */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/the-gioi">Thế giới</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/quan-su">Quân sự</Link></li>
+                                    <li><Link to="/category/phan-tich-binh-luan">Phân tích - Bình luận</Link></li>
+                                    <li><Link to="/category/the-gioi-do-day">Thế giới đó đây</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(75, 76).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(76, 80).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* danh mục du lich */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/du-lich">Du lịch</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/tin-tuc">Tin tức</Link></li>
+                                    <li><Link to="/category/kham-pha">Khám phá</Link></li>
+                                    <li><Link to="/category/mon-ngon-diem-dep">Món ngon - Điểm đẹp</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(80, 81).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(81, 85).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* danh mục oto-xe may */}
+                        <div className="category-wrap line">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/o-to-xe-may">Ô tô - Xe máy</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/thi-truong-xe">Thị trường xe</Link></li>
+                                    <li><Link to="/category/xe-dien">Xe điện</Link></li>
+                                    <li><Link to="/category/danh-gia">Đánh giá</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {restNews.slice(85, 86).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+                                {restNews.slice(86, 90).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                        {/* poll page home */}
+                        <div className="poll page-home">
+                            <div className="poll-left">
+                                <div className="bao-giay-banner">
+                                    <div className="banner-title">
+                                        <a href="https://noivuxahoi.dantri.com.vn/doc-bao-giay-online" target="_blank">
+                                            Đọc báo giấy online
+                                        </a>
+                                    </div>
+                                    <a href="https://noivuxahoi.dantri.com.vn/doc-bao-giay-online" target="_blank">
+                                        <img 
+                                            className="banner-img" 
+                                            alt="Báo giấy | NV&XH số 96" 
+                                            src="https://icdn.dantri.com.vn/2025/12/23/nvxh-so-96png-1766474250290.png" 
+                                        />
+                                    </a>
+                                </div>
+                                <div className="poll-widget">
+                                    <iframe 
+                                        frameBorder="0" 
+                                        src="https://gadgets.dantri.com.vn/polls/1056?embed=fixed" 
+                                        allowFullScreen
+                                        allow="autoplay; encrypted-media; fullscreen; accelerometer; gyroscope; clipboard-write; web-share;"
+                                        title="Bình chọn"
+                                    />
+                                </div>
+                            </div>
+                            <div className="poll-right">
+                                <div className="ad-space">
+                                    <iframe 
+                                        src="https://cdn.dtadnetwork.com/creatives/html5/202511/1762939412/index.html" 
+                                        frameBorder="0" 
+                                        scrolling="no" 
+                                        allowFullScreen={false}
+                                        title="Advertisement"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
