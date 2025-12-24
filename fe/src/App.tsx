@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Nav from './components/NavigationBar/Nav';
 import Home from './pages/Home/Home';
 import ArticleDetail from './pages/ArticleDetail/ArticleDetail';
+import Profile from './pages/Profile/Profile';
 import AuthModal from './components/AuthModal/AuthModal';
 import { AuthProvider } from './context/AuthContext';
 import './App.scss'
@@ -16,6 +17,17 @@ function App() {
         <AuthModal />
         <Routes>
 
+
+          <Route path="/profile" element={
+            <>
+              <Header />
+              <Nav />
+              <main className="body-container">
+                <Profile />
+              </main>
+              <Footer />
+            </>
+          } />
 
           {/* Route cho trang chi tiết bài viết */}
           <Route path="/article" element={

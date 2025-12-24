@@ -12,6 +12,8 @@ export interface AuthContextType {
   signInWithGoogle: () => Promise<void>;
   signInWithFacebook: () => Promise<void>;
   signInWithGithub: () => Promise<void>;
+  unlinkSocialAccount: (provider: string) => Promise<void>;
+  displayName: string;
 }
 
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
