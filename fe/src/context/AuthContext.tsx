@@ -18,9 +18,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     });
 
     // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setSession(session);
-      setUser(session?.user ?? null);
+      if (session?.user) {
+        const { data: { user: freshUser } } = await supabase.auth.getUser();
+        setUser(freshUser);
+      } else {
+        setUser(null);
+      }
       setLoading(false);
     });
 
@@ -62,17 +67,22 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const { data: { user: updatedUser } } = await supabase.auth.getUser();
     setUser(updatedUser);
   };
-
-  //dòng này để khi thêm kết nối mới nó ko lưu tên mới vào session gây hiển thị nhầm tên
   const displayName = (() => {
     if (!user) return '';
-    const sortedIdentities = [...(user.identities || [])].sort(
-      (a, b) => new Date(a.created_at || '').getTime() - new Date(b.created_at || '').getTime()
+
+    const identities = user.identities || [];
+    const userSignInTime = new Date(user.last_sign_in_at || 0).getTime();
+    const loginIdentity = identities.find(id => 
+      Math.abs(new Date(id.last_sign_in_at || 0).getTime() - userSignInTime) < 2000
     );
-    const primaryIdentity = sortedIdentities[0];
-    return primaryIdentity?.identity_data?.full_name || 
-           primaryIdentity?.identity_data?.name || 
-           user.user_metadata?.full_name;
+
+    if (loginIdentity) {
+      return loginIdentity.identity_data?.full_name || 
+             loginIdentity.identity_data?.name || 
+             user.user_metadata?.full_name;
+    }
+
+    return user.user_metadata?.full_name || user.user_metadata?.name;
   })();
 
   const value = {
