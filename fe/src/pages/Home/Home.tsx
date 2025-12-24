@@ -160,12 +160,11 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                {/* Trending Topics Section */}
                 <div className="trending-topics">
                     <div className="trending-header">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="24" height="24" rx="12" fill="#FFF5EE"/>
-                            <path fillRule="evenodd" clipRule="evenodd" d="M13.4342 20.0547C14.2298 18.8781 14.3031 17.6074 13.6541 16.2424C13.4736 16.9747 13.1435 17.4191 12.6637 17.5758C13.1093 16.3033 12.737 14.9286 11.5467 13.4515C11.521 14.977 11.1545 16.0883 10.4469 16.7853C9.47224 17.7446 9.48371 18.8272 10.4813 20.0332C6.34011 17.8293 5.75586 14.8736 8.72849 11.166C8.91286 12.0617 9.35964 12.6116 10.0689 12.8157C9.2958 9.53506 10.1092 6.73972 12.5091 4.42969C12.5238 9.55616 14.0959 10.0118 16.0835 12.3002C18.2295 15.0463 16.9683 18.2154 13.4342 20.0547Z" fill="#E32929"/>
+                            <rect width="24" height="24" rx="12" fill="#FFF5EE" />
+                            <path fillRule="evenodd" clipRule="evenodd" d="M13.4342 20.0547C14.2298 18.8781 14.3031 17.6074 13.6541 16.2424C13.4736 16.9747 13.1435 17.4191 12.6637 17.5758C13.1093 16.3033 12.737 14.9286 11.5467 13.4515C11.521 14.977 11.1545 16.0883 10.4469 16.7853C9.47224 17.7446 9.48371 18.8272 10.4813 20.0332C6.34011 17.8293 5.75586 14.8736 8.72849 11.166C8.91286 12.0617 9.35964 12.6116 10.0689 12.8157C9.2958 9.53506 10.1092 6.73972 12.5091 4.42969C12.5238 9.55616 14.0959 10.0118 16.0835 12.3002C18.2295 15.0463 16.9683 18.2154 13.4342 20.0547Z" fill="#E32929" />
                         </svg>
                         Chủ đề nóng
                     </div>
@@ -184,13 +183,13 @@ function Home() {
                         <button className="btn-left" aria-label="Scroll left">
                             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_24530_62949)">
-                                    <path d="M11.1661 8.79777L14.4261 12.0578C14.8111 12.4428 14.8111 13.0728 14.4261 13.4578L11.1661 16.7178" stroke="#333333" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M11.1661 8.79777L14.4261 12.0578C14.8111 12.4428 14.8111 13.0728 14.4261 13.4578L11.1661 16.7178" stroke="black" strokeOpacity="0.2" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M11.1661 8.79777L14.4261 12.0578C14.8111 12.4428 14.8111 13.0728 14.4261 13.4578L11.1661 16.7178" stroke="#333333" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M11.1661 8.79777L14.4261 12.0578C14.8111 12.4428 14.8111 13.0728 14.4261 13.4578L11.1661 16.7178" stroke="black" strokeOpacity="0.2" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                                 </g>
-                                <rect x="1.16602" y="1.25781" width="23" height="23" rx="5.5" stroke="#A0A4A8"/>
+                                <rect x="1.16602" y="1.25781" width="23" height="23" rx="5.5" stroke="#A0A4A8" />
                                 <defs>
                                     <clipPath id="clip0_24530_62949">
-                                        <rect x="0.666016" y="0.757812" width="24" height="24" rx="6" fill="white"/>
+                                        <rect x="0.666016" y="0.757812" width="24" height="24" rx="6" fill="white" />
                                     </clipPath>
                                 </defs>
                             </svg>
@@ -198,19 +197,127 @@ function Home() {
                         <button className="btn-right" aria-label="Scroll right">
                             <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_24530_62949)">
-                                    <path d="M11.1661 8.79777L14.4261 12.0578C14.8111 12.4428 14.8111 13.0728 14.4261 13.4578L11.1661 16.7178" stroke="#333333" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M11.1661 8.79777L14.4261 12.0578C14.8111 12.4428 14.8111 13.0728 14.4261 13.4578L11.1661 16.7178" stroke="black" strokeOpacity="0.2" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                                    <path d="M11.1661 8.79777L14.4261 12.0578C14.8111 12.4428 14.8111 13.0728 14.4261 13.4578L11.1661 16.7178" stroke="#333333" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M11.1661 8.79777L14.4261 12.0578C14.8111 12.4428 14.8111 13.0728 14.4261 13.4578L11.1661 16.7178" stroke="black" strokeOpacity="0.2" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                                 </g>
-                                <rect x="1.16602" y="1.25781" width="23" height="23" rx="5.5" stroke="#A0A4A8"/>
+                                <rect x="1.16602" y="1.25781" width="23" height="23" rx="5.5" stroke="#A0A4A8" />
                                 <defs>
                                     <clipPath id="clip0_24530_62949">
-                                        <rect x="0.666016" y="0.757812" width="24" height="24" rx="6" fill="white"/>
+                                        <rect x="0.666016" y="0.757812" width="24" height="24" rx="6" fill="white" />
                                     </clipPath>
                                 </defs>
                             </svg>
                         </button>
                     </div>
-                </div>            </div>
+                </div>
+                <div className="grid normal">
+                    <article className="article-list">
+                        {/* Regular article items */}
+                        {restNews.slice(18, 23).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/234x156'} alt={item.title} width="234" height="156" />
+                                    </Link>
+                                </div>
+                                <div className="article-content">
+                                    <h3 className="article-title">
+                                        <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                    </h3>
+                                    <div className="article-excerpt">
+                                        <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+
+                        {/* TIN HAY featured box */}
+                        <div className="featured-box">
+                            <div className="title-head">TIN HAY</div>
+                            <article className="grid-featured">
+                                {restNews.slice(23, 26).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/150x100'} alt={item.title} width="150" height="100" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </article>
+                        </div>
+
+                        {/* More article items after featured box */}
+                        {restNews.slice(26, 31).map((item, index) => (
+                            <article key={index + 23} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/234x156'} alt={item.title} width="234" height="156" />
+                                    </Link>
+                                </div>
+                                <div className="article-content">
+                                    <h3 className="article-title">
+                                        <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                    </h3>
+                                    <div className="article-excerpt">
+                                        <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                    </article>
+                    <div className="category">
+                        <div className="category-wrap">
+                            <div className="category-head">
+                                <h2 className="title">
+                                    <Link to="/category/kinh-doanh">Kinh doanh</Link>
+                                </h2>
+                                <ol className="category-nav">
+                                    <li><Link to="/category/tai-chinh">Tài chính</Link></li>
+                                    <li><Link to="/category/chung-khoan">Chứng khoán</Link></li>
+                                </ol>
+                            </div>
+                            <div className="category-container">
+                                {/* First category article with large thumbnail */}
+                                {restNews.slice(31, 32).map((item, index) => (
+                                    <article key={index} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/192x128'} alt={item.title} width="192" height="128" />
+                                            </Link>
+                                        </div>
+                                        <div className="article-content">
+                                            <h3 className="article-title">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                            </h3>
+                                            <div className="article-excerpt">
+                                                <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                            </div>
+                                        </div>
+                                    </article>
+                                ))}
+
+                                {/* Smaller category articles with thumbnail on right */}
+                                {restNews.slice(32, 35).map((item, index) => (
+                                    <article key={index + 1} className="article-item">
+                                        <div className="article-thumb">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                                <img src={item.imageUrl || 'https://via.placeholder.com/90x60'} alt={item.title} width="90" height="60" />
+                                            </Link>
+                                        </div>
+                                        <h3 className="article-title">
+                                            <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                        </h3>
+                                    </article>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     );
 }
