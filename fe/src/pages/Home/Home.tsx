@@ -248,7 +248,7 @@ function Home() {
                                 ))}
                             </article>
                         </div>
-                        {restNews.slice(26, 31).map((item, index) => (
+                        {restNews.slice(26, 50).map((item, index) => (
                             <article key={index + 23} className="article-item">
                                 <div className="article-thumb">
                                     <Link to={`/article/${encodeURIComponent(item.link)}`}>
@@ -690,7 +690,6 @@ function Home() {
                                 ))}
                             </div>
                         </div>
-
                         {/* danh mục the gioi */}
                         <div className="category-wrap line">
                             <div className="category-head">
