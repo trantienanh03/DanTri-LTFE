@@ -13,6 +13,7 @@ import {
   Phone, 
   MapPin
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import './Profile.scss';
 
 const Profile: React.FC = () => {
@@ -26,7 +27,13 @@ const Profile: React.FC = () => {
     displayName
   } = useAuth();
 
-  if (!user) return null;
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (!user) {
+      navigate('/');
+    }
+  }, [user, navigate]);
 
   if (!user) return null;
 
