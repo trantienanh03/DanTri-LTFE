@@ -2,8 +2,8 @@ import './Footer.scss';
 
 function Footer() {
     return (
-        <footer className="footer-container container">
-            <div className="footer-content">
+        <footer className="footer-wrapper">
+            <div className="footer-container container">
                 <div className="footer-logo">
                     <a href="https://dantri.com.vn/">
                         <img alt="Báo điện tử Dân trí - Tin tức cập nhật liên tục 24/7"
@@ -60,7 +60,6 @@ function Footer() {
                     <p>© 2005-2025 Bản quyền thuộc về Báo điện tử Dân trí. Cấm sao chép dưới mọi hình thức nếu không có sự chấp thuận bằng văn bản.</p>
                 </div>
             </div>
-
         </footer>
     );
 }

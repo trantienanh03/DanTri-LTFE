@@ -1,13 +1,13 @@
-.nav-container {
+.nav-wrapper {
   background-color: var(--bg-white);
   position: sticky;
-  top: 66px;
+  top: 0;
   z-index: 40;
+  width: 100%;
 
-  .nav-content {
+  .nav-container {
     max-width: var(--max-width);
     margin: 0 auto;
-
 
     // main menu wrapper
     .menu-wrap {
