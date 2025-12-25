@@ -20,6 +20,10 @@ function Home() {
     const [lawNews, setLawNews] = useState<NewsItem[]>([]);
     const [loveNews, setLoveNews] = useState<NewsItem[]>([]);
     const [scienceNews, setScienceNews] = useState<NewsItem[]>([]);
+    const [spotlightNews, setSpotlightNews] = useState<NewsItem[]>([]);
+    const [readerNews, setReaderNews] = useState<NewsItem[]>([]);
+    const [dmagazineNews, setDmagazineNews] = useState<NewsItem[]>([]);
+    const [infographicNews, setInfographicNews] = useState<NewsItem[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -125,6 +129,62 @@ function Home() {
         };
 
         fetchScienceNews();
+    }, []);
+
+    useEffect(() => {
+        const fetchSpotlightNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/tam-diem.rss')}`);
+                setSpotlightNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch spotlight news", error);
+            }
+        };
+
+        fetchSpotlightNews();
+    }, []);
+
+    useEffect(() => {
+        const fetchReaderNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/ban-doc.rss')}`);
+                setReaderNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch reader news", error);
+            }
+        };
+
+        fetchReaderNews();
+    }, []);
+
+    useEffect(() => {
+        const fetchDmagazineNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/dmagazine.rss')}`);
+                setDmagazineNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch dmagazine news", error);
+            }
+        };
+
+        fetchDmagazineNews();
+    }, []);
+
+    useEffect(() => {
+        const fetchInfographicNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/infographic.rss')}`);
+                setInfographicNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch infographic news", error);
+            }
+        };
+
+        fetchInfographicNews();
     }, []);
 
     if (loading) {
@@ -1293,6 +1353,146 @@ function Home() {
                             </article>
                         ))}
                         {scienceNews.slice(1, 4).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/114x76'} alt={item.title} width="114" height="76" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                </div>
+            </div>
+
+            {/* Grid Row 2 - Tâm điểm, Bạn đọc, Dmagazine, Infographic */}
+            <div className="grid row mt-60">
+                {/* Tâm điểm */}
+                <div className="article-col" data-cate-id="702">
+                    <h2 className="title mb-24">
+                        <Link to="/tam-diem">Tâm điểm</Link>
+                    </h2>
+                    <article className="article-wrap">
+                        {spotlightNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/264x176'} alt={item.title} width="264" height="176" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                        {spotlightNews.slice(1, 4).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/114x76'} alt={item.title} width="114" height="76" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                </div>
+
+                {/* Bạn đọc */}
+                <div className="article-col" data-cate-id="202">
+                    <h2 className="title">
+                        <Link to="/ban-doc">Bạn đọc</Link>
+                    </h2>
+                    <ol className="navigation">
+                        <li><Link to="/ban-doc/ban-doc-noi">Bạn đọc nói</Link></li>
+                        <li><Link to="/ban-doc/tu-van-phap-luat">Tư vấn pháp luật</Link></li>
+                        <li><Link to="/ban-doc/hoi-am">Hồi âm</Link></li>
+                    </ol>
+                    <article className="article-wrap">
+                        {readerNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/264x176'} alt={item.title} width="264" height="176" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                        {readerNews.slice(1, 4).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/114x76'} alt={item.title} width="114" height="76" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                </div>
+
+                {/* Dmagazine */}
+                <div className="article-col" data-cate-id="1070">
+                    <h2 className="title mb-24">
+                        <Link to="/dmagazine">Dmagazine</Link>
+                    </h2>
+                    <article className="article-wrap">
+                        {dmagazineNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/264x176'} alt={item.title} width="264" height="176" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                        {dmagazineNews.slice(1, 4).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/114x76'} alt={item.title} width="114" height="76" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                </div>
+
+                {/* Infographic */}
+                <div className="article-col" data-cate-id="1071">
+                    <h2 className="title mb-24">
+                        <Link to="/infographic">Infographic</Link>
+                    </h2>
+                    <article className="article-wrap">
+                        {infographicNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/264x176'} alt={item.title} width="264" height="176" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                        {infographicNews.slice(1, 4).map((item, index) => (
                             <article key={index + 1} className="article-item">
                                 <div className="article-thumb">
                                     <Link to={`/article?url=${encodeURIComponent(item.link)}`}>

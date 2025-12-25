@@ -1392,10 +1392,6 @@
   grid-gap: 24px;
   margin: 36px 0 0;
 
-  &.mt-60 {
-    margin-top: 60px;
-  }
-
   &.three {
     grid-template-columns: repeat(3, 1fr);
 
@@ -1436,12 +1432,12 @@
       font-weight: 600;
       text-transform: uppercase;
 
-      &.mb-24 {
-        margin-bottom: 22px;
-      }
-
       a {
         color: #015e53;
+
+        &:hover {
+          color: #06c;
+        }
       }
     }
 
@@ -1495,6 +1491,10 @@
         font-size: 18px;
         font-weight: 600;
         line-height: 24px;
+
+        &:hover {
+          color: #06c;
+        }
       }
     }
   }
@@ -1522,6 +1522,10 @@
         font-weight: 500;
         font-size: 14px;
         line-height: 19px;
+
+        &:hover {
+          color: #06c;
+        }
       }
     }
   }
