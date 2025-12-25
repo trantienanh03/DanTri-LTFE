@@ -1,20 +1,17 @@
-.header-container {
+.header-wrapper {
   background-color: var(--bg-white);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  width: 100%;
+
+  .header-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    height: 66px;
 
   .separate-line-between {
     width: 1px;
     height: 20px;
     background-color: var(--text-lighter);
   }
-
-  .header-content {
-    max-width: var(--max-width);
-    margin: 0 auto;
-
-    height: 66px;
     display: flex;
     justify-content: space-between;
     align-items: center;
