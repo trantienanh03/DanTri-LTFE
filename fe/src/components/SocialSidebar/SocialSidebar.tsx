@@ -2,7 +2,7 @@ import './SocialSidebar.scss';
 
 interface SocialSidebarProps {
   articleUrl: string;
-  articleId?: string;
+  {/*  articleId?: string; */}
 }
 
 const SocialSidebar = ({ articleUrl, articleId = '' }: SocialSidebarProps) => {
