@@ -79,7 +79,7 @@ function Home() {
     const restNews = news.slice(1);
 
     return (
-        <main className="homepage-container container">
+        <main className="homepage-container">
             <div className="homepage-content">
                 <div className="grid highlight">
                     {/* Tin noi bat nhat */}
@@ -1013,6 +1013,84 @@ function Home() {
                             </article>
                         ))}
                     </article>
+                </div>
+            </div>
+            <div className="spotlight-wrap line bg-wrap">
+                <div className="spotlight-nav">
+                    <div className="title">
+                        Dân trí <span>Spotlight</span>
+                    </div>
+                    <ol className="spotlight-menu">
+                        <li><a href="https://dantri.com.vn/dmagazine.htm">Dmagazine</a></li>
+                        <li><a href="https://dantri.com.vn/infographic.htm">Infographic</a></li>
+                        <li><a href="https://dantri.com.vn/collection/dbiz-4030.htm">DBiz</a></li>
+                        <li><a href="https://dantri.com.vn/photo-news.htm">Photo News</a></li>
+                        <li><a href="https://dantri.com.vn/tam-diem.htm">Tâm điểm</a></li>
+                    </ol>
+                </div>
+                <div className="spotlight-slide">
+                    <div className="spotlight-swiper">
+                        <div className="spotlight-wrapper">
+                            {restNews.slice(6, 12).map((item, index) => (
+                                <article className="spotlight-item" key={index}>
+                                    <div className="spotlight-thumb">
+                                        <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                            <img
+                                                src={item.imageUrl}
+                                                alt={item.title}
+                                                referrerPolicy="no-referrer"
+                                                loading="lazy"
+                                            />
+                                        </Link>
+                                    </div>
+                                    <div className="spotlight-category">
+                                        <a href="https://dantri.com.vn/photo-news.htm">
+                                            <img
+                                                alt="PhotoNews"
+                                                height="28"
+                                                src="https://cdnweb.dantri.com.vn/dist/static-Logo-PhotoNews-Primary-Horizon.1-0-1.6f0823521c2770194b99.svg"
+                                                width="191"
+                                            />
+                                        </a>
+                                    </div>
+                                    <h3 className="spotlight-title">
+                                        <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                            {item.title}
+                                        </Link>
+                                    </h3>
+                                </article>
+                            ))}
+                        </div>
+                        <div className="spotlight-pagination">
+                            <span className="spotlight-bullet active"></span>
+                            <span className="spotlight-bullet"></span>
+                            <span className="spotlight-bullet"></span>
+                        </div>
+                    </div>
+                    <div className="spotlight-next">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clipPath="url(#clip0_spotlight_next)">
+                                <path d="M9.707 5.29292L4.707 0.292919C4.51839 0.110761 4.26579 0.00996641 4.0036 0.0122448C3.7414 0.0145233 3.49059 0.119692 3.30518 0.3051C3.11977 0.490508 3.0146 0.741321 3.01232 1.00352C3.01004 1.26571 3.11084 1.51832 3.293 1.70692L7.586 5.99992L3.293 10.2929C3.19749 10.3852 3.1213 10.4955 3.0689 10.6175C3.01649 10.7395 2.9889 10.8707 2.98775 11.0035C2.98659 11.1363 3.01189 11.268 3.06218 11.3909C3.11246 11.5138 3.18671 11.6254 3.2806 11.7193C3.37449 11.8132 3.48615 11.8875 3.60904 11.9377C3.73194 11.988 3.86362 12.0133 3.9964 12.0122C4.12918 12.011 4.2604 11.9834 4.3824 11.931C4.50441 11.8786 4.61475 11.8024 4.707 11.7069L9.707 6.70692C9.89447 6.51939 9.99978 6.26508 9.99978 5.99992C9.99978 5.73475 9.89447 5.48045 9.707 5.29292Z" fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_spotlight_next">
+                                    <rect width="12" height="12" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div className="spotlight-prev">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clipPath="url(#clip0_spotlight_prev)">
+                                <path d="M2.29298 5.29292L7.29298 0.292919C7.48158 0.110761 7.73418 0.00996641 7.99638 0.0122448C8.25858 0.0145233 8.50939 0.119692 8.6948 0.3051C8.88021 0.490508 8.98538 0.741321 8.98765 1.00352C8.98993 1.26571 8.88914 1.51832 8.70698 1.70692L4.41398 5.99992L8.70698 10.2929C8.80249 10.3852 8.87867 10.4955 8.93108 10.6175C8.98349 10.7395 9.01108 10.8707 9.01223 11.0035C9.01338 11.1363 8.98808 11.268 8.9378 11.3909C8.88752 11.5138 8.81327 11.6254 8.71937 11.7193C8.62548 11.8132 8.51383 11.8875 8.39093 11.9377C8.26804 11.988 8.13636 12.0133 8.00358 12.0122C7.8708 12.011 7.73958 11.9834 7.61758 11.931C7.49557 11.8786 7.38523 11.8024 7.29298 11.7069L2.29298 6.70692C2.10551 6.51939 2.00019 6.26508 2.00019 5.99992C2.00019 5.73475 2.10551 5.48045 2.29298 5.29292Z" fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_spotlight_prev">
+                                    <rect width="12" height="12" fill="white" transform="matrix(-1 0 0 1 12 0)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </div>
                 </div>
             </div>
         </main>
