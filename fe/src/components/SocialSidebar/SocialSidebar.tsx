@@ -42,7 +42,7 @@ const SocialSidebar = ({ articleUrl, articleId = '' }: SocialSidebarProps) => {
             className="cpanel-item facebook"
             target="_blank"
             rel="nofollow noreferrer"
-            href={`http://www.facebook.com/sharer.php?u=${encodedUrl}`}
+            href={`https://www.facebook.com/sharer.php?u=${encodedUrl}`}
             title="Chia sẻ bài viết lên facebook"
           >
             <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
