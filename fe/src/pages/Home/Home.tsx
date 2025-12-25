@@ -14,6 +14,8 @@ interface NewsItem {
 function Home() {
     const { slug } = useParams();
     const [news, setNews] = useState<NewsItem[]>([]);
+    const [educationNews, setEducationNews] = useState<NewsItem[]>([]);
+    const [technologyNews, setTechnologyNews] = useState<NewsItem[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -36,6 +38,34 @@ function Home() {
 
         fetchNews();
     }, [slug]);
+
+    useEffect(() => {
+        const fetchEducationNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/giao-duc.rss')}`);
+                setEducationNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch education news", error);
+            }
+        };
+
+        fetchEducationNews();
+    }, []);
+
+    useEffect(() => {
+        const fetchTechnologyNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/cong-nghe.rss')}`);
+                setTechnologyNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch technology news", error);
+            }
+        };
+
+        fetchTechnologyNews();
+    }, []);
 
     if (loading) {
         return <div className="loading-container">Đang tải tin tức...</div>;
@@ -832,17 +862,17 @@ function Home() {
                                         </a>
                                     </div>
                                     <a href="https://noivuxahoi.dantri.com.vn/doc-bao-giay-online" target="_blank">
-                                        <img 
-                                            className="banner-img" 
-                                            alt="Báo giấy | NV&XH số 96" 
-                                            src="https://icdn.dantri.com.vn/2025/12/23/nvxh-so-96png-1766474250290.png" 
+                                        <img
+                                            className="banner-img"
+                                            alt="Báo giấy | NV&XH số 96"
+                                            src="https://icdn.dantri.com.vn/2025/12/23/nvxh-so-96png-1766474250290.png"
                                         />
                                     </a>
                                 </div>
                                 <div className="poll-widget">
-                                    <iframe 
-                                        frameBorder="0" 
-                                        src="https://gadgets.dantri.com.vn/polls/1056?embed=fixed" 
+                                    <iframe
+                                        frameBorder="0"
+                                        src="https://gadgets.dantri.com.vn/polls/1056?embed=fixed"
                                         allowFullScreen
                                         allow="autoplay; encrypted-media; fullscreen; accelerometer; gyroscope; clipboard-write; web-share;"
                                         title="Bình chọn"
@@ -851,10 +881,10 @@ function Home() {
                             </div>
                             <div className="poll-right">
                                 <div className="ad-space">
-                                    <iframe 
-                                        src="https://cdn.dtadnetwork.com/creatives/html5/202511/1762939412/index.html" 
-                                        frameBorder="0" 
-                                        scrolling="no" 
+                                    <iframe
+                                        src="https://cdn.dtadnetwork.com/creatives/html5/202511/1762939412/index.html"
+                                        frameBorder="0"
+                                        scrolling="no"
                                         allowFullScreen={false}
                                         title="Advertisement"
                                     />
@@ -862,6 +892,127 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            {/* Grid Category Giáo dục */}
+            <div className="grid category">
+                <div className="head">
+                    <h2 className="title">
+                        <Link to="/giao-duc">Giáo dục</Link>
+                    </h2>
+                    <ol className="subcate">
+                        <li><Link to="/giao-duc/goc-phu-huynh">Góc phụ huynh</Link></li>
+                        <li><Link to="/giao-duc/tuyen-sinh">Tuyển sinh</Link></li>
+                        <li><Link to="/giao-duc/tuyen-sinh/tra-cuu-diem">Tra cứu điểm</Link></li>
+                    </ol>
+                </div>
+                <div className="article-container">
+                    <article className="article-highlight">
+                        {educationNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/516x344'} alt={item.title} width="516" height="344" />
+                                    </Link>
+                                </div>
+                                <div className="article-content">
+                                    <h3 className="article-title">
+                                        <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                    </h3>
+                                    <div className="article-excerpt">
+                                        <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                        {educationNews.slice(1, 3).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/234x156'} alt={item.title} width="234" height="156" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                    <article className="article-list">
+                        {educationNews.slice(3, 8).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/120x80'} alt={item.title} width="120" height="80" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                </div>
+            </div>
+
+            {/* Grid Category Công nghệ */}
+            <div className="grid category">
+                <div className="head">
+                    <h2 className="title">
+                        <Link to="/cong-nghe">Công nghệ</Link>
+                    </h2>
+                    <ol className="subcate">
+                        <li><Link to="/cong-nghe/ai-internet">AI & Internet</Link></li>
+                        <li><Link to="/cong-nghe/an-ninh-mang">An ninh mạng</Link></li>
+                    </ol>
+                </div>
+                <div className="article-container">
+                    <article className="article-highlight">
+                        {technologyNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/516x344'} alt={item.title} width="516" height="344" />
+                                    </Link>
+                                </div>
+                                <div className="article-content">
+                                    <h3 className="article-title">
+                                        <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                    </h3>
+                                    <div className="article-excerpt">
+                                        <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.description}</Link>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
+                        {technologyNews.slice(1, 3).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/234x156'} alt={item.title} width="234" height="156" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                    <article className="article-list">
+                        {technologyNews.slice(3, 8).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/120x80'} alt={item.title} width="120" height="80" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article/${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
                 </div>
             </div>
         </main>
