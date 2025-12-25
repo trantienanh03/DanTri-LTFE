@@ -1,7 +1,6 @@
 .homepage-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
 
   .grid.highlight {
     display: grid;
@@ -967,9 +966,6 @@
       display: flex;
 
       .title {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          "Helvetica Neue", "Arial", "Apple Color Emoji", "Segoe UI Emoji",
-          "Segoe UI Symbol", sans-serif;
         font-size: 16px;
         line-height: 22px;
         font-weight: 600;
@@ -1299,7 +1295,6 @@
       margin: 8px 0 0;
       font-size: 16px;
       line-height: 22px;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-weight: 600;
 
       a {
@@ -1330,7 +1325,7 @@
     .spotlight-item {
       flex: 0 0 auto;
       max-width: 100%;
-      width: 272px;
+      width: 282px;
 
       &:not(:first-child) {
         margin-left: 24px;
@@ -1387,5 +1382,147 @@
   .spotlight-next {
     right: 0;
     border-radius: 8px 0 0 8px;
+  }
+}
+
+// Grid Row 
+.grid.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 24px;
+  margin: 36px 0 0;
+
+  &.mt-60 {
+    margin-top: 60px;
+  }
+
+  &.three {
+    grid-template-columns: repeat(3, 1fr);
+
+    .article-item:not(:nth-child(1)) {
+      grid-template-columns: 1fr 114px;
+    }
+
+    .article-item a {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 22px;
+    }
+  }
+
+  .article-col {
+    display: flex;
+    flex-direction: column;
+    padding: 11px 0 0;
+    position: relative;
+    align-items: stretch;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-top: 1px solid #eee;
+      display: block;
+      height: 0;
+      width: 100%;
+    }
+
+    .title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 22px;
+      color: #015e53;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      &.mb-24 {
+        margin-bottom: 22px;
+      }
+
+      a {
+        color: #015e53;
+      }
+    }
+
+    .navigation {
+      margin: 4px 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      li {
+        float: left;
+
+        &:not(:nth-child(1)) {
+          margin-left: 12px;
+        }
+
+        a {
+          color: #333;
+
+          &:hover {
+            color: #06c;
+          }
+        }
+      }
+    }
+  }
+
+  .article-wrap {
+    margin: 10px 0 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-item:nth-child(1) {
+    min-height: 260px;
+
+    .article-title {
+      margin: 12px 0 0;
+      font-size: 16px;
+      line-height: 22px;
+      min-height: 66px;
+
+      a {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .article-item:not(:nth-child(1)) {
+    margin: 16px 0 0;
+    padding: 16px 0 0;
+    border-top: 1px solid #eee;
+    display: grid;
+    grid-template-columns: 1fr 84px;
+    grid-gap: 12px;
+    overflow: hidden;
+
+    .article-thumb {
+      order: 2;
+    }
+
+    .article-title {
+      margin: 0;
+      font-size: 13px;
+      line-height: 18px;
+      font-weight: 400;
+
+      a {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 19px;
+      }
+    }
   }
 }

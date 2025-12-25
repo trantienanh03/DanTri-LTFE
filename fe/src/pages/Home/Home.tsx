@@ -16,6 +16,10 @@ function Home() {
     const [news, setNews] = useState<NewsItem[]>([]);
     const [educationNews, setEducationNews] = useState<NewsItem[]>([]);
     const [technologyNews, setTechnologyNews] = useState<NewsItem[]>([]);
+    const [laborNews, setLaborNews] = useState<NewsItem[]>([]);
+    const [lawNews, setLawNews] = useState<NewsItem[]>([]);
+    const [loveNews, setLoveNews] = useState<NewsItem[]>([]);
+    const [scienceNews, setScienceNews] = useState<NewsItem[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -65,6 +69,62 @@ function Home() {
         };
 
         fetchTechnologyNews();
+    }, []);
+
+    useEffect(() => {
+        const fetchLaborNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/lao-dong-viec-lam.rss')}`);
+                setLaborNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch labor news", error);
+            }
+        };
+
+        fetchLaborNews();
+    }, []);
+
+    useEffect(() => {
+        const fetchLawNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/phap-luat.rss')}`);
+                setLawNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch law news", error);
+            }
+        };
+
+        fetchLawNews();
+    }, []);
+
+    useEffect(() => {
+        const fetchLoveNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/tinh-yeu-gioi-tinh.rss')}`);
+                setLoveNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch love news", error);
+            }
+        };
+
+        fetchLoveNews();
+    }, []);
+
+    useEffect(() => {
+        const fetchScienceNews = async () => {
+            try {
+                const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+                const response = await axios.get(`${apiBaseUrl}/api/news?url=${encodeURIComponent('https://dantri.com.vn/rss/khoa-hoc.rss')}`);
+                setScienceNews(response.data);
+            } catch (error) {
+                console.error("Failed to fetch science news", error);
+            }
+        };
+
+        fetchScienceNews();
     }, []);
 
     if (loading) {
@@ -1091,6 +1151,160 @@ function Home() {
                             </defs>
                         </svg>
                     </div>
+                </div>
+            </div>
+
+            {/* Grid Row */}
+            <div className="grid row">
+                {/* Lao động - Việc làm */}
+                <div className="article-col" data-cate-id="133">
+                    <h2 className="title">
+                        <Link to="/lao-dong-viec-lam">Lao động - Việc làm</Link>
+                    </h2>
+                    <ol className="navigation">
+                        <li><Link to="/lao-dong-viec-lam/nhan-luc-moi">Nhân lực mới</Link></li>
+                        <li><Link to="/lao-dong-viec-lam/lam-giau">Làm giàu</Link></li>
+                        <li><Link to="/noi-vu/an-sinh">An sinh</Link></li>
+                    </ol>
+                    <article className="article-wrap">
+                        {laborNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/264x176'} alt={item.title} width="264" height="176" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                        {laborNews.slice(1, 4).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/114x76'} alt={item.title} width="114" height="76" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                </div>
+
+                {/* Pháp luật */}
+                <div className="article-col" data-cate-id="170">
+                    <h2 className="title">
+                        <Link to="/phap-luat">Pháp luật</Link>
+                    </h2>
+                    <ol className="navigation">
+                        <li><Link to="/phap-luat/ho-so-vu-an">Hồ sơ vụ án</Link></li>
+                        <li><Link to="/phap-luat/phap-dinh">Pháp đình</Link></li>
+                    </ol>
+                    <article className="article-wrap">
+                        {lawNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/264x176'} alt={item.title} width="264" height="176" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                        {lawNews.slice(1, 4).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/114x76'} alt={item.title} width="114" height="76" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                </div>
+
+                {/* Tình yêu - Giới tính */}
+                <div className="article-col" data-cate-id="130">
+                    <h2 className="title">
+                        <Link to="/tinh-yeu-gioi-tinh">Tình yêu - Giới tính</Link>
+                    </h2>
+                    <ol className="navigation">
+                        <li><Link to="/tinh-yeu-gioi-tinh">Tình yêu - Giới tính</Link></li>
+                        <li><Link to="/tinh-yeu-gioi-tinh/gia-dinh">Gia đình</Link></li>
+                        <li><Link to="/tinh-yeu-gioi-tinh/tinh-yeu">Tình yêu</Link></li>
+                    </ol>
+                    <article className="article-wrap">
+                        {loveNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/264x176'} alt={item.title} width="264" height="176" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                        {loveNews.slice(1, 4).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/114x76'} alt={item.title} width="114" height="76" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
+                </div>
+
+                {/* Khoa học */}
+                <div className="article-col" data-cate-id="894">
+                    <h2 className="title">
+                        <Link to="/khoa-hoc">Khoa học</Link>
+                    </h2>
+                    <ol className="navigation">
+                        <li><Link to="/khoa-hoc/the-gioi-tu-nhien">Thế giới tự nhiên</Link></li>
+                        <li><Link to="/khoa-hoc/vu-tru">Vũ trụ</Link></li>
+                        <li><Link to="/khoa-hoc/kham-pha">Khám phá</Link></li>
+                    </ol>
+                    <article className="article-wrap">
+                        {scienceNews.slice(0, 1).map((item, index) => (
+                            <article key={index} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/264x176'} alt={item.title} width="264" height="176" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                        {scienceNews.slice(1, 4).map((item, index) => (
+                            <article key={index + 1} className="article-item">
+                                <div className="article-thumb">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>
+                                        <img src={item.imageUrl || 'https://via.placeholder.com/114x76'} alt={item.title} width="114" height="76" referrerPolicy="no-referrer" />
+                                    </Link>
+                                </div>
+                                <h3 className="article-title">
+                                    <Link to={`/article?url=${encodeURIComponent(item.link)}`}>{item.title}</Link>
+                                </h3>
+                            </article>
+                        ))}
+                    </article>
                 </div>
             </div>
         </main>
