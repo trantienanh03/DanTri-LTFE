@@ -8,12 +8,14 @@ import ArticleDetail from './pages/ArticleDetail/ArticleDetail';
 import Profile from './pages/Profile/Profile';
 import AuthModal from './components/AuthModal/AuthModal';
 import { AuthProvider } from './context/AuthContext';
+import { SavedProvider } from './context/SavedContext';
 import './App.scss'
 
 function App() {
   return (
     <div className="app">
-      <AuthProvider>
+      <SavedProvider>
+        <AuthProvider>
         <AuthModal />
         <Routes>
 
@@ -64,7 +66,8 @@ function App() {
           } />
         </Routes>
       </AuthProvider>
-    </div>
+    </SavedProvider>
+  </div>
   );
 }
 

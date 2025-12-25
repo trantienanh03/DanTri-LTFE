@@ -116,11 +116,11 @@ function Header() {
                                 <div className="user-dropdown">
                                     <div className="dropdown-arrow"></div>
                                     {/* Mốt làm rồi gắn link sau nha giờ note tượng trưng th */}
-                                    <Link to="/profile" className="dropdown-item">Thông tin tài khoản</Link>
-                                    <Link to="/activity" className="dropdown-item">Hoạt động bình luận</Link>
-                                    <Link to="/newsfeed" className="dropdown-item">Bảng tin của bạn</Link>
-                                    <Link to="/history" className="dropdown-item">Tin đã xem</Link>
-                                    <Link to="/saved" className="dropdown-item">Tin đã lưu</Link>
+                                    <Link to="/profile?section=account" className="dropdown-item">Thông tin tài khoản</Link>
+                                    <Link to="/profile?section=comments" className="dropdown-item">Hoạt động bình luận</Link>
+                                    <Link to="/profile?section=newsfeed" className="dropdown-item">Bảng tin của bạn</Link>
+                                    <Link to="/profile?section=history" className="dropdown-item">Tin đã xem</Link>
+                                    <Link to="/profile?section=saved" className="dropdown-item">Tin đã lưu</Link>
                                     <button 
                                         className="dropdown-item logout" 
                                         onClick={() => {
