@@ -1,11 +1,14 @@
 import './SocialSidebar.scss';
 
+
+// commented out unused articleId for upcoming feature
 interface SocialSidebarProps {
   articleUrl: string;
-  {/*  articleId?: string; */}
+  // articleId?: string;
 }
 
-const SocialSidebar = ({ articleUrl, articleId = '' }: SocialSidebarProps) => {
+// const SocialSidebar = ({ articleUrl, articleId = '' }: SocialSidebarProps) => {
+const SocialSidebar = ({ articleUrl }: SocialSidebarProps) => {
   const fullUrl = `https://dantri.com.vn${articleUrl}`;
   const encodedUrl = encodeURIComponent(fullUrl);
 
