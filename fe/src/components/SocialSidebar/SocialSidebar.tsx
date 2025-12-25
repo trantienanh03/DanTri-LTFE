@@ -9,9 +9,40 @@ const SocialSidebar = ({ articleUrl, articleId = '' }: SocialSidebarProps) => {
   const fullUrl = `https://dantri.com.vn${articleUrl}`;
   const encodedUrl = encodeURIComponent(fullUrl);
 
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(fullUrl);
-    alert('Đã sao chép liên kết!');
+  const handleCopyLink = async () => {
+    // Prefer the modern asynchronous Clipboard API when available
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      try {
+        await navigator.clipboard.writeText(fullUrl);
+        alert('Đã sao chép liên kết!');
+      } catch (error) {
+        console.error('Failed to copy link using Clipboard API:', error);
+        alert('Không thể sao chép liên kết. Vui lòng thử lại.');
+      }
+      return;
+    }
+
+    // Fallback for older browsers without navigator.clipboard
+    try {
+      const textArea = document.createElement('textarea');
+      textArea.value = fullUrl;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textArea);
+
+      if (successful) {
+        alert('Đã sao chép liên kết!');
+      } else {
+        alert('Không thể sao chép liên kết. Vui lòng thử lại.');
+      }
+    } catch (error) {
+      console.error('Failed to copy link using fallback method:', error);
+      alert('Không thể sao chép liên kết. Vui lòng thử lại.');
+    }
   };
 
   const handleComment = () => {
