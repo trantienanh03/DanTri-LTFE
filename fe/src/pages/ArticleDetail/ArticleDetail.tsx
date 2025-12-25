@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useSearchParams, useNavigate } from 'react-router-dom';
+import SocialSidebar from '../../components/SocialSidebar/SocialSidebar';
 import './ArticleDetail.scss';
 
 // Define types for Article
@@ -74,31 +75,34 @@ const ArticleDetail = () => {
   if (!article) return null;
 
   return (
-    <div className="article-detail-container">
-      {/* Custom Back Button */}
-      <button className="back-button" onClick={handleBack}>
-        Quay lại
-      </button>
+    <>
+      <SocialSidebar articleUrl={url || ''} />
+      <div className="article-detail-container">
+        {/* Custom Back Button */}
+        <button className="back-button" onClick={handleBack}>
+          Quay lại
+        </button>
 
-      <h1 className="article-title">{article.title}</h1>
-      <h2 className="article-sapo">{article.sapo}</h2>
+        <h1 className="article-title">{article.title}</h1>
+        <h2 className="article-sapo">{article.sapo}</h2>
 
-      <div className="article-body">
-        {article.body.map((item, index) => {
-          if (item.type === 'image') {
-            return (
-              <figure key={index} className="article-image">
-                <img referrerPolicy="no-referrer" src={item.content} alt="Article content" />
-              </figure>
-            );
-          } else {
-            return (
-              <p key={index} className="article-text">{item.content}</p>
-            );
-          }
-        })}
+        <div className="article-body">
+          {article.body.map((item, index) => {
+            if (item.type === 'image') {
+              return (
+                <figure key={index} className="article-image">
+                  <img referrerPolicy="no-referrer" src={item.content} alt="Article content" />
+                </figure>
+              );
+            } else {
+              return (
+                <p key={index} className="article-text">{item.content}</p>
+              );
+            }
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
