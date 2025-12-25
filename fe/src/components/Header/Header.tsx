@@ -6,7 +6,7 @@ import './Header.scss';
 import logoImage from '../../assets/img/logo_dantri.svg';
 
 function Header() {
-    const { user, openAuthModal, signOut } = useAuth();
+    const { user, openAuthModal, signOut, displayName } = useAuth();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -107,7 +107,7 @@ function Header() {
                                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                             >
                                 <span className="user-greeting">
-                                    Chào, {user.user_metadata?.full_name?.split(' ').pop() || 'Bạn'}
+                                    Chào, {displayName.split(' ').pop()}
                                 </span>
                                 <ChevronDown size={16} className={`chevron ${isDropdownOpen ? 'open' : ''}`} />
                             </button>

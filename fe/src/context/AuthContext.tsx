@@ -18,9 +18,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     });
 
     // Listen for auth changes
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setSession(session);
-      setUser(session?.user ?? null);
+      if (session?.user) {
+        const { data: { user: freshUser } } = await supabase.auth.getUser();
+        setUser(freshUser);
+      } else {
+        setUser(null);
+      }
       setLoading(false);
     });
 
@@ -34,35 +39,51 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     await supabase.auth.signOut();
   };
 
-  const signInWithGoogle = async () => {
+  const signInWithGoogle = () => signInWithOAuth('google');
+  const signInWithFacebook = () => signInWithOAuth('facebook');
+  const signInWithGithub = () => signInWithOAuth('github');
+
+  const signInWithOAuth = async (provider: 'google' | 'facebook' | 'github') => {
     const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'google',
+      provider,
       options: {
-        redirectTo: window.location.origin,
+        redirectTo: window.location.href,
       },
     });
     if (error) throw error;
   };
 
-  const signInWithFacebook = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'facebook',
-      options: {
-        redirectTo: window.location.origin,
-      },
-    });
-    if (error) throw error;
-  };
+  const unlinkSocialAccount = async (provider: string) => {
+    if (!user) return;
 
-  const signInWithGithub = async () => {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: 'github',
-      options: {
-        redirectTo: window.location.origin,
-      },
-    });
+    // tìm identity tương ứng với provider
+    const identity = user.identities?.find((id) => id.provider === provider);
+    if (!identity) throw new Error(`Không tìm thấy liên kết cho ${provider}`);
+
+    const { error } = await supabase.auth.unlinkIdentity(identity);
     if (error) throw error;
+
+    // update lại session sau khi ngắt kết nối
+    const { data: { user: updatedUser } } = await supabase.auth.getUser();
+    setUser(updatedUser);
   };
+  const displayName = (() => {
+    if (!user) return '';
+
+    const identities = user.identities || [];
+    const userSignInTime = new Date(user.last_sign_in_at || 0).getTime();
+    const loginIdentity = identities.find(id => 
+      Math.abs(new Date(id.last_sign_in_at || 0).getTime() - userSignInTime) < 2000
+    );
+
+    if (loginIdentity) {
+      return loginIdentity.identity_data?.full_name || 
+             loginIdentity.identity_data?.name || 
+             user.user_metadata?.full_name;
+    }
+
+    return user.user_metadata?.full_name || user.user_metadata?.name;
+  })();
 
   const value = {
     user,
@@ -74,7 +95,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     signOut,
     signInWithGoogle,
     signInWithFacebook,
-    signInWithGithub
+    signInWithGithub,
+    unlinkSocialAccount,
+    displayName
   };
 
   return (
