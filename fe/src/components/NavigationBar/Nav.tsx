@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 function Nav() {
     return (
-        <nav className="nav-container container">
-            <div className="nav-content">
+        <nav className="nav-wrapper">
+            <div className="nav-container container">
                 <ol className="menu-wrap">
                     <li className="home">
                         <Link aria-label="Báo điện tử Dân trí - Tin tức cập nhật liên tục 24/7" to="/">

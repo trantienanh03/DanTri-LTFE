@@ -26,8 +26,8 @@ function Header() {
     }, [isDropdownOpen]);
 
     return (
-        <header className="header-container container">
-            <div className="header-content">
+        <header className="header-wrapper">
+            <div className="header-container container">
                 <div className="left-section">
                     <Link to="/" className="logo">
                         <img
