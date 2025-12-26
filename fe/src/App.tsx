@@ -24,9 +24,7 @@ function App() {
             <>
               <Header />
               <Nav />
-              <main className="body-container">
                 <Profile />
-              </main>
               <Footer />
             </>
           } />
