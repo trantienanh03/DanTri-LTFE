@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import SavedNews from './components/SavedNews';
+import RecentlyViewed from './components/RecentlyViewed';
 import './Profile.scss';
 
 const Profile: React.FC = () => {
@@ -233,6 +234,8 @@ const Profile: React.FC = () => {
             </>
           ) : activeSection === 'saved' ? (
             <SavedNews />
+          ) : activeSection === 'history' ? (
+            <RecentlyViewed />
           ) : (
             <div className="placeholder-section">
               <h1 className="section-main-title">{sidebarItems.find(i => i.id === activeSection)?.label}</h1>
